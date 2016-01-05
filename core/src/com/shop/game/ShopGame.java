@@ -19,6 +19,9 @@ public class ShopGame extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		itemTextures = new Texture[146];
 		itemSprites = new Sprite[146];
+		/**
+		 * Windows
+		 */
 		for(int i=0;i<65;i++){ //imports the basic items
 			String name = "Item-Images\\Basic-Items\\BI";
 			if(i<10)
@@ -38,12 +41,41 @@ public class ShopGame extends ApplicationAdapter {
 			itemTextures[index] = new Texture(Gdx.files.internal(name));
 			itemSprites[index] = new Sprite(itemTextures[index]);
 		}
+		/**
+		 * Windows
+		 */
+
+		/**
+		 * WARNING I'M A MAC USER
+		 */
+		/*for(int i=0;i<65;i++){ //imports the basic items
+			String name = "core/assets/Item-Images/Basic-Items/BI";
+			if(i<10)
+				name = name+"0"+i+".png";
+			else
+				name = name+i+".png";
+			itemTextures[i] = new Texture(Gdx.files.internal(name));
+			itemSprites[i] = new Sprite(itemTextures[i]);
+		}
+		for(int i=0;i<81;i++){ //imports the complex items
+			String name = "core/assets/Item-Images/Complex-Items/CI";
+			int index = i+65;
+			if(i<9)
+				name = name+"0"+(i+1)+".png";
+			else
+				name = name+(i+1)+".png";
+			itemTextures[index] = new Texture(Gdx.files.internal(name));
+			itemSprites[index] = new Sprite(itemTextures[index]);
+		}*/
+		/**
+		 * WARNING I'M A MAC USER
+		 */
 	}
 
 	@Override
 	public void dispose() { //disposes of all the assets
-		for(int i=0;i<itemTextures.length;i++){
-			itemTextures[i].dispose();
+		for(Texture itemTexture: itemTextures){
+			itemTexture.dispose();
 		}
 		batch.dispose();
 	}
