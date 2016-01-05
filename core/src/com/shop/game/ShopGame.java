@@ -4,9 +4,10 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class ShopGame extends ApplicationAdapter {
+/**public class ShopGame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
 	
@@ -23,5 +24,26 @@ public class ShopGame extends ApplicationAdapter {
 		batch.begin();
 		batch.draw(img, 0, 0);
 		batch.end();
+	}
+}*/
+
+public class ShopGame extends ApplicationAdapter {
+	private SpriteBatch batch;
+	private Texture[] itemTextures;
+	private Sprite[] itemSprites;
+
+	@Override
+	public void create() {
+		
+	}
+
+	@Override
+	public void dispose() {
+
+	}
+
+	@Override
+	public void render() {
+
 	}
 }
