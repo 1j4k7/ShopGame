@@ -7,33 +7,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-/**public class ShopGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
-	
-	@Override
-	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
-	}
-
-	@Override
-	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
-	}
-}*/
-
 public class ShopGame extends ApplicationAdapter {
 	private SpriteBatch batch;
 	private Texture[] itemTextures;
 	private Sprite[] itemSprites;
 
 	@Override
-	public void create() {
+	public void create() { //imports all the assets
 		//81 complex items and 65 basic items
 		//basic items are 0-64 and complex items are 65-145
 		batch = new SpriteBatch();
@@ -61,7 +41,7 @@ public class ShopGame extends ApplicationAdapter {
 	}
 
 	@Override
-	public void dispose() {
+	public void dispose() { //disposes of all the assets
 		for(int i=0;i<itemTextures.length;i++){
 			itemTextures[i].dispose();
 		}
@@ -69,7 +49,7 @@ public class ShopGame extends ApplicationAdapter {
 	}
 
 	@Override
-	public void render() {
+	public void render() { //renders the screen
 		Gdx.gl.glClearColor(0,0,0,1); //clears the background and set it black
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
