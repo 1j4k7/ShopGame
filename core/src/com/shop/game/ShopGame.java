@@ -5,13 +5,21 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class ShopGame extends ApplicationAdapter {
+
     private SpriteBatch batch;
     private Texture[] itemTextures;
     private Sprite[] itemSprites;
+    private int guessesLeft;
+    private BitmapFont guessesLeftText;
+    private int score;
+    private BitmapFont scoreText;
+    private int consecutive;//number correct in a row
+    private BitmapFont consecutiveText;
 
     @Override
     public void create() { //imports all the assets
@@ -72,6 +80,13 @@ public class ShopGame extends ApplicationAdapter {
          * WARNING I'M A MAC USER
          */
 
+        guessesLeft = 3;
+        guessesLeftText = new BitmapFont();
+        score = 0;
+        scoreText = new BitmapFont();
+        consecutive = 0;
+        consecutiveText = new BitmapFont();
+
     }
 
     @Override
@@ -80,6 +95,9 @@ public class ShopGame extends ApplicationAdapter {
             itemTexture.dispose();
         }
         batch.dispose();
+        guessesLeftText.dispose();
+        scoreText.dispose();
+        consecutiveText.dispose();
     }
 
     @Override
@@ -94,6 +112,9 @@ public class ShopGame extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         //draw stuff here
+        guessesLeftText.draw(batch, "Guesses Left: " + guessesLeft, Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2 - 10);
+        scoreText.draw(batch, "Score: " + score, Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2 - 30);
+        consecutiveText.draw(batch, consecutive +" in a row", Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2 - 50);
         itemSprites[0].draw(batch);
         batch.end();
     }
