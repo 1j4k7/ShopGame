@@ -1,3 +1,5 @@
+Recipe
+///
 Clarity
 Total Mana Restored: 190
 Duration: 50
@@ -91,26 +93,26 @@ Blade of Alacrity
 +10 Agility
 ///
 Staff of Wizardry
-+10 Inteliigence
++10 Intelligence
 ///
 Ring of Protection
 +2 Armor
 ///
 Stout Shield
 Damage Block Chance: 50%
-Melee Damage Block: 16
-Ranged Damage Block: 8
+Melee Blocked Damage: 16
+Ranged Blocked Damage: 8
 ///
 Quelling Blade
 Chop Tree Range: 350
 Chop Ward Range: 450
-Melee Quell Damage: 40%
-Ranged Quell Damage: 15%
+Quell Melee Damage Bonus: 40%
+Quell Ranged Damage Bonus: 15%
 ///
 Orb of Venom
 Melee Move Slow: 12%
 Ranged Move Slow: 6%
-Damage per Seond: 3
+Damage per Second: 3
 Duration: 4
 ///
 Blades of Attack
@@ -163,7 +165,7 @@ Ring of Health
 +5 HP Regeneration
 ///
 Void Stone
-100% Mana RegIneneration
+100% Mana Regeneration
 ///
 Gem of True Sight
 True Sight Radius: 1100
@@ -196,7 +198,7 @@ Point Booster
 Platemail
 +10 Armor
 ///
-Taliman of Evasion
+Talisman of Evasion
 +25 Evasion
 ///
 Hyperstone
@@ -208,7 +210,7 @@ Ultimate Orb
 Demon Edge
 +46 Damage
 ///
-Mystic Staf
+Mystic Staff
 +25 Intelligence
 ///
 Reaver
@@ -229,7 +231,7 @@ Mana restored: 1000
 ///
 Magic Wand
 +4 All Attributes
-Health and mana Restored per Charge: 15
+Health and Mana Restored per Charge: 15
 ///
 Null Talisman
 +3 Strength
@@ -243,10 +245,10 @@ Wraith Band
 +3 Intelligence
 +3 Damage
 ///
-Poor Man's Sheild
+Poor Man's Shield
 +6 Agility
-Melee Damage Block: 20
-Ranged Damage Block: 10
+Melee Blocked Damage: 20
+Ranged Blocked Damage: 10
 ///
 Bracer
 +6 Strength
@@ -265,7 +267,7 @@ Phase Boots
 Power Treads
 +25 Attack Speed
 +45 Movement Speed
-+9 Selected Aattribute Bonus
++9 Selected Attribute Bonus
 ///
 Oblivion Staff
 +6 Intelligence
@@ -273,9 +275,9 @@ Oblivion Staff
 +15 Damage
 +10 Attack Speed
 ///
-Perserverance
+Perseverance
 +5 HP Regeneration
-+125% Mana Regneration
++125% Mana Regeneration
 +10 Damage
 ///
 Hand of Midas
@@ -303,10 +305,10 @@ Current Health as Damage: 40%
 Quell Melee Damage Bonus: 40%
 Quell Ranged Damage Bonus: 40%
 ///
-Headress
+Headdress
 +2 All Attributes
 Regeneration Aura Range: 900
-Aura Health Regneration Bonus: 3
+Aura Health Regeneration Bonus: 3
 ///
 Buckler
 +2 All Attributes
@@ -314,11 +316,11 @@ Buckler
 Armor Bonus Range: 900
 Armor Bonus: 2
 Hero Duration: 25
-Non-Hero Duation: 30
+Non-Hero Duration: 30
 ///
 Urn of Shadows
 +6 Strength
-+50% Mana Regeration
++50% Mana Regeneration
 ///
 Tranquil Boots
 +12 HP Regeneration
@@ -383,7 +385,7 @@ Guardian Aura Health Regeneration Bonus: 4
 Guardian Aura Armor Bonus: 2
 Guardian Aura Boost Health Threshold: 20%
 Guardian Aura Boosted Armor Bonus: 15
-Guardian Aura Boosted Helath Regeneration Bonus: 10
+Guardian Aura Boosted Health Regeneration Bonus: 10
 ///
 Glimmer Cape
 +15% Magic Resistance
@@ -463,10 +465,10 @@ Octarine Core
 ///
 Crystalys
 +30 damage
-Critical Stike Chance: 20%
+Critical Strike Chance: 20%
 Critical Strike Damage: 175%
 ///
-Armlet of Mordriggian
+Armlet of Mordiggian
 +7 HP Regeneration
 +9 Damage
 +5 Armor
@@ -475,6 +477,9 @@ Armlet of Mordriggian
 Shadow Blade
 +22 Damage
 +30 Attack Speed
+Shadow Walk Fade Time:0.3
+Shadow Walk Damage:175
+Shadow Walk Duration:14
 ///
 Skull Basher
 +10 Strength
@@ -503,6 +508,15 @@ Silver Edge
 +16 Strength
 +32 Damage
 +30 Attack Speed
+Shadow Walk Fade Time: 0.3
+Shadow Walk Damage: 225
+Shadow Walk Duration: 14
+Enemy Damage Reduction: 40%
+Damage Reduction Duration: 5
+Lesser Maim Chance: 15%
+Lesser Maim Move Speed Slow: 20%
+Lesser Maim Attack Speed Slow: 20
+Lesser Maim Slow Duration: 4
 ///
 Radiance
 +65 Damage
@@ -714,3 +728,6 @@ Observer Ward Vision Radius: 1600
 Observer Ward Duration: 420
 Sentry Ward True Sight Radius: 850
 Sentry Ward Duration: 240
+///
+Boots of Travel Level 2
++100 Movement Speed

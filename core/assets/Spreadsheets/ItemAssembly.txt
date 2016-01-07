@@ -7,13 +7,13 @@ Soul Ring:Sage's Mask,Ring of Regen,Recipe
 Phase Boots:Blades of Attack,Blades of Attack,Boots of Speed
 Power Treads:Gloves of Haste,Belt of Strength,Boots of Speed
 Oblivion Staff:Robe of the Magi,QuarterStaff,Sage's Mask
-Perservence:Ring of Health,Void Stone
+Perseverance:Ring of Health,Void Stone
 Hand of Midas:Gloves of Haste,Recipe
 Boots of Travel:Boots of Speed,Recipe
 Moon Shard:Hyperstone,Hyperstone
 Ring of Basilius:Sage's Mask,Ring of Protection
 Iron Talon:Quelling Blade,Ring of Protection,Recipe
-Headress:Ring of Regen,Iron Branch,Recipe
+Headdress:Ring of Regen,Iron Branch,Recipe
 Buckler:Chainmail,Iron Branch,Recipe
 Urn of Shadows:Sage's Mask,Gauntlet of Strength,Gauntlet of Strength,Recipe
 Tranquil Boots:Ring of Regen,Ring of Protection,Boots of Speed
@@ -21,9 +21,9 @@ Ring of Aquila:Wraith Band,Ring of Basilius
 Medallion of Courage:Chainmail,Sage's Mask, Recipe
 Arcane Boots:Energy Booster,Boots of Speed
 Drums of Endurance:Robe of the Magi,Bracer,Recipe
-Mekansm:Headress,Buckler,Recipe
-Vladmir's Offering:Ring of Basilius,Morbid Mask,Headress,Recipe
-Pipe of Insight:Hood of Defiance,Headress,Recipe
+Mekansm:Headdress,Buckler,Recipe
+Vladmir's Offering:Ring of Basilius,Morbid Mask,Headdress,Recipe
+Pipe of Insight:Hood of Defiance,Headdress,Recipe
 Guardian Greaves:Arcane Boots,Mekansm,Recipe
 Glimmer Cape:Shadow Amulet,Cloak
 Force Staff:Staff of Wizardry,Ring of Regen,Recipe
@@ -34,21 +34,21 @@ Dagon:Staff of Wizardry,Null Talisman,Recipe
 Eul's Scepter of Divinity:Staff of Wizardry,Sage's Mask, Void Stone,Recipe
 Solar Crest:Medallion of Courage,Talisman of Evasion
 Rod of Atos:Staff of Wizardry,Staff of Wizardry,Vitality Booster
-Orchid Malevolence:Oblivion Staff,Obvlivion Staff, Recipe
+Orchid Malevolence:Oblivion Staff,Oblivion Staff, Recipe
 Aghanim's Scepter:Staff of Wizardry,Blade of Alacrity,Ogre Club
-Refresher Orb:Perserverence,Perserverence, Recipe
+Refresher Orb:Perseverance,Perseverance, Recipe
 Scythe of Vyse:Mystic Staff,Ultimate Orb,Void Stone
 Octarine Core:Mystic Staff,Soul Booster
 Crystalys:Broadsword,Blade of Attack,Recipe
 Armlet of Mordiggian:Helm of Iron Will,Gloves of Haste,Blades of Attack,Recipe
 Shadow Blade:Claymore,Shadow Amulet
 Skull Basher:Javelin,Belt of Strength,Recipe
-Battle Fury:Broadsword,Claymore,Perserverance,Quelling Blade
+Battle Fury:Broadsword,Claymore,Perseverance,Quelling Blade
 Ethereal Blade:Eaglesong,Ghost Scepter
 Silver Edge:Sange,Shadow Blade
 Radiance:Sacred Relic,Recipe
 Monkey King Bar:Javelin,Javelin,Demon Edge
-Deadalus:Crystalys,Demon Edge,Recipe
+Daedalus:Crystalys,Demon Edge,Recipe
 Butterfly:Eaglesong,Talisman of Evasion,Quarterstaff
 Divine Rapier:Sacred Relic,Demon Edge
 Abyssal Blade:Skull Basher,Sacred Relic,Recipe
@@ -58,11 +58,11 @@ Blademail:Broadsword,Chainmail,Robe of the Magi
 Soul Booster:Vitality Booster,Energy Booster,Point Booster
 Crimson Guard:Vanguard,Buckler,Recipe
 Black King Bar:Ogre Club,Mithril Hammer,Recipe
-Lotus Orb:Perserverance,Platemail,Recipe
+Lotus Orb:Perseverance,Platemail,Recipe
 Shiva's Guard:Mystic Staff,Platemail,Recipe
 Bloodstone:Soul Booster,Soul Ring,Recipe
 Manta Style:Yasha,Ultimate Orb,Recipe
-Linken's Sphere:Perserverance,Ultimate Orb,Recipe
+Linken's Sphere:Perseverance,Ultimate Orb,Recipe
 Assault Cuirass:Platemail,Hyperstone,Chainmail,Recipe
 Heart of Tarrasque:Reaver,Vitality Booster,Recipe
 Mask of Madness:Morbid Mask,Recipe
@@ -75,7 +75,8 @@ Diffusal Blade:Blade of Alacrity,Blade of Alacrity,Robe of the Magi,Recipe
 Desolator:Mithril Hammer,Mithril Hammer,Recipe
 Heaven's Halberd:Sange,Talisman of Evasion
 Sange and Yasha:Sange,Yasha
-Eye of Skadi:Orb of Venom,Ultimate Orb,Ulitmate Orb,Point Booster
+Eye of Skadi:Orb of Venom,Ultimate Orb,Ultimate Orb,Point Booster
 Mjollnir:Maelstrom,Hyperstone,Recipe
 Satanic:Reaver,Helm of the Dominator,Recipe
 Observer and Sentry Wards:Observer Ward,Sentry Ward
+Boots of Travel Level 2:Boots of Travel,Recipe
