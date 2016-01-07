@@ -3,11 +3,15 @@ package com.shop.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ShopGame extends ApplicationAdapter {
 
@@ -20,6 +24,8 @@ public class ShopGame extends ApplicationAdapter {
     private BitmapFont scoreText;
     private int consecutive;//number correct in a row
     private BitmapFont consecutiveText;
+    private ArrayList<Integer> recipes;
+    private HashMap itemsDict;
 
     @Override
     public void create() { //imports all the assets
@@ -31,7 +37,7 @@ public class ShopGame extends ApplicationAdapter {
         /**
          * Windows
          */
-		/*for(int i=0;i<65;i++){ //imports the basic items
+		for(int i=0;i<65;i++){ //imports the basic items
 			String name = "Item-Images\\Basic-Items\\BI";
 			if(i<10)
 				name = name+"0"+i+".png";
@@ -49,7 +55,7 @@ public class ShopGame extends ApplicationAdapter {
 				name = name+(i+1)+".png";
 			itemTextures[index] = new Texture(Gdx.files.internal(name));
 			itemSprites[index] = new Sprite(itemTextures[index]);
-		}*/
+		}
         /**
          * Windows
          */
@@ -57,7 +63,7 @@ public class ShopGame extends ApplicationAdapter {
         /**
          * WARNING I'M A MAC USER
          */
-        for(int i=0;i<65;i++){ //imports the basic items
+        /*for(int i=0;i<65;i++){ //imports the basic items
             String name = "core/assets/Item-Images/Basic-Items/BI";
             if(i<10)
                 name = name+"0"+i+".png";
@@ -75,7 +81,7 @@ public class ShopGame extends ApplicationAdapter {
                 name = name+(i+1)+".png";
             itemTextures[index] = new Texture(Gdx.files.internal(name));
             itemSprites[index] = new Sprite(itemTextures[index]);
-        }
+        }*/
         /**
          * WARNING I'M A MAC USER
          */
@@ -87,6 +93,22 @@ public class ShopGame extends ApplicationAdapter {
         consecutive = 0;
         consecutiveText = new BitmapFont();
 
+        FileHandle itemListHandle = Gdx.files.internal("Spreadsheets\\ItemList.txt");
+        FileHandle itemAssemblyHandle = Gdx.files.internal("Spreadsheets\\ItemDescription.txt");
+
+        String itemList = itemListHandle.readString();
+        String[] itemString = itemList.split("\n");
+        itemsDict = new HashMap();
+        for(int i=0;i<itemString.length;i++){
+            itemsDict.put(itemString[i],i);
+        }
+
+        recipes = new ArrayList<Integer>();
+        String recipesString = itemAssemblyHandle.readString();
+        String[] recipeString = recipesString.split("\n");
+        for(int i=0;i<recipeString.length;i++){
+            //make an array list of the recipes using the numerical value of the items
+        }
     }
 
     @Override
