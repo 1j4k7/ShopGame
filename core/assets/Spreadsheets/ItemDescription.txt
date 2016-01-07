@@ -1,0 +1,716 @@
+Clarity
+Total Mana Restored: 190
+Duration: 50
+///
+Faerie Fire
++2 Damage
+Health Restored: 75
+///
+Enchanted Mango
++1 HP Regeneration
+Mana Restored: 150
+///
+Tango
+Eat Tree Health Restored: 115 Health
+Eat Ward Health Restored: 230 Health
+Eat Ward Cast Range: 450
+Heal Duration: 16
+///
+Tango(Shared)
+Eat Tree Health Restored: 115 Health
+Eat Ward Health Restored: 230 Health
+Eat Ward Cast Range: 450
+Heal Duration: 16
+///
+Healing Salve
+Duration: 8
+Health Restored: 400
+///
+Smoke of Deceit
+Bonus Speed: +15%
+Duration: 35
+///
+Town Portal Scroll
+///
+Dust of Appearance
+Duration: 12
+Reveal Radius: 1050
+Slow: 20%
+///
+Animal Courier
+///
+Flying Courier
+///
+Observer Ward
+Cast Range: 500
+Vision Radius: 1600
+Duration: 420
+///
+Sentry Ward
+Cast Range: 500
+True Sight Radius: 850
+Duration :240
+///
+Bottle
+Cast Range: 350
+Number of Charges: 3
+Total Health Restored: 90
+Total Mana Restored: 60
+Duration: 2.5
+///
+Iron Branch
++1 All Attributes
+Plant Tree Cast Range: 200
+Plant Tree Duration: 20
+///
+Gauntlets of Strength
++3 Strength
+///
+Slippers of Agility
++3 Agility
+///
+Mantle of Intelligence
++3 Intelligence
+///
+Circlet
++2 All Attributes
+///
+Belt of Strength
++6 Strength
+///
+Band of Elvenskin
++6 Agility
+///
+Robe of the Magi
++6 Intelligence
+///
+Ogre Club
++10 Strength
+///
+Blade of Alacrity
++10 Agility
+///
+Staff of Wizardry
++10 Inteliigence
+///
+Ring of Protection
++2 Armor
+///
+Stout Shield
+Damage Block Chance: 50%
+Melee Damage Block: 16
+Ranged Damage Block: 8
+///
+Quelling Blade
+Chop Tree Range: 350
+Chop Ward Range: 450
+Melee Quell Damage: 40%
+Ranged Quell Damage: 15%
+///
+Orb of Venom
+Melee Move Slow: 12%
+Ranged Move Slow: 6%
+Damage per Seond: 3
+Duration: 4
+///
+Blades of Attack
++9 Damage
+///
+Chainmail
++5 Armor
+///
+Quarterstaff
++10 Damage
++10 Attack Speed
+///
+Helm of Iron Will
++3 HP Regeneration
++5 Armor
+///
+Broadsword
++18 Damage
+///
+Claymore
++21 Damage
+///
+Javelin
++10 Damage
+Pierce Chance: 25%
+Pierce Damage: 85
+///
+Mithril Hammer
++24 Damage
+///
+Magic Stick
+Health and Mana Restored per Charge: 15
+///
+Sage's Mask
++50% Mana Regeneration
+///
+Ring of Regen
++2 HP Regeneration
+///
+Boots of Speed
++45 Movement Speed
+///
+Gloves of Haste
++20 Attack Speed
+///
+Cloak
++15% Magic Resistance
+///
+Ring of Health
++5 HP Regeneration
+///
+Void Stone
+100% Mana RegIneneration
+///
+Gem of True Sight
+True Sight Radius: 1100
+///
+Morbid Mask
+Lifesteal: 15%
+///
+Shadow Amulet
++20 Attack Speed
+Fade Time: 1.5
+///
+Ghost Scepter
++5 All Attributes
+Ghost Form magic Resistance Reduction: 40%
+Duration: 4
+///
+Blink Dagger
+Max Blink Distance: 1200
+///
+Energy Booster
++250 Mana
+///
+Vitality Booster
++250 Health
+///
+Point Booster
++200 Health
++150 Mana
+///
+Platemail
++10 Armor
+///
+Taliman of Evasion
++25 Evasion
+///
+Hyperstone
++55 Attack Speed
+///
+Ultimate Orb
++10 All Attributes
+///
+Demon Edge
++46 Damage
+///
+Mystic Staf
++25 Intelligence
+///
+Reaver
++25 Strength
+///
+Eaglesong
++25 Agility
+///
+Sacred Relic
++60 Damage
+///
+Aegis of the Immortal
++1 Immortality
+///
+Cheese
+Health Restored: 2500
+Mana restored: 1000
+///
+Magic Wand
++4 All Attributes
+Health and mana Restored per Charge: 15
+///
+Null Talisman
++3 Strength
++3 Agility
++6 Intelligence
++3 Damage
+///
+Wraith Band
++3 Strength
++6 Agility
++3 Intelligence
++3 Damage
+///
+Poor Man's Sheild
++6 Agility
+Melee Damage Block: 20
+Ranged Damage Block: 10
+///
+Bracer
++6 Strength
++3 Agility
++3 Intelligence
++3 Damage
+///
+Soul Ring
++3 HP Regeneration
++50% Mana Regeneration
+///
+Phase Boots
++24 Damage
++45 Movement Speed
+///
+Power Treads
++25 Attack Speed
++45 Movement Speed
++9 Selected Aattribute Bonus
+///
+Oblivion Staff
++6 Intelligence
++75% Mana Regeneration
++15 Damage
++10 Attack Speed
+///
+Perserverance
++5 HP Regeneration
++125% Mana Regneration
++10 Damage
+///
+Hand of Midas
++30 Attack Speed
+///
+Boots of Travel
++100 Movement Speed
+///
+Moon Shard
++120 Attack Speed
+Night Vision Bonus: 250
+///
+Ring of Basilius
++6 Damage
++1 Armor
+Basilius Aura Radius: 900
+Aura Mana Regeneration Bonus:0.65
+Aura Armor Bonus: 2
+///
+Iron Talon
++2 Armor
+Tree/Unit Chop Range: 350
+Ward Chop Range: 450
+Current Health as Damage: 40%
+Quell Melee Damage Bonus: 40%
+Quell Ranged Damage Bonus: 40%
+///
+Headress
++2 All Attributes
+Regeneration Aura Range: 900
+Aura Health Regneration Bonus: 3
+///
+Buckler
++2 All Attributes
++5 Armor
+Armor Bonus Range: 900
+Armor Bonus: 2
+Hero Duration: 25
+Non-Hero Duation: 30
+///
+Urn of Shadows
++6 Strength
++50% Mana Regeration
+///
+Tranquil Boots
++12 HP Regeneration
++3 Armor
++85 Movement Speed
+///
+Ring of Aquila
++3 Strength
++9 Agility
++3 Intelligence
++9 Damage
++1 Armor
+Aquila Aura Radius: 900
+Aquila Aura Mana Regeneration Bonus: 0.65
+Aquila Aura Armor Bonus: 2
+///
+Medallion of Courage
++50% Mana Regeneration
++7 Armor
+///
+Arcane Boots
++250 Mana
++50 Movement Speed
+///
+Drum of Endurance
++9 All Attributes
++3 Damage
+Swiftness Aura Radius: 900
+Swiftness Aura move Speed Bonus: 5%
+Swiftness Aura Attack Speed Bonus: 5
+///
+Mekansm
++5 All Attributes
++5 Armor
+Mekansm Aura Radius: 900
+Mekansm Aura Health Regeneration Bonus: 4
+///
+Vladmir's Offering
++2 All Attributes
+Vladmir's Aura Radius: 900
+Vladmir's Aura Melee Lifesteal: 15%
+Vladmir's Aura Ranged Lifesteal: 10%
+Vladmir's Aura Attack Speed Bonus: 15%
+Vladmir's Aura Mana Regeneration Bonus: 0.8
+Vladmir's Aura Health Regeneration Bonus: 3
+Vladmir's Aura Armor Bonus: 5
+///
+Pipe of Insight
++9 HP Regeneration
++30% Magic Resistance
+Insight Aura Radius: 900
+Insight Aura Health Regeneration Bonus: 4
+Insight Aura Magic Resistance Bonus: 10%
+///
+Guardian Greaves
++5 All Attributes
++250 Mana
++5 Armor
++55 Movement Speed
+Guardian Aura Radius: 900
+Guardian Aura Health Regeneration Bonus: 4
+Guardian Aura Armor Bonus: 2
+Guardian Aura Boost Health Threshold: 20%
+Guardian Aura Boosted Armor Bonus: 15
+Guardian Aura Boosted Helath Regeneration Bonus: 10
+///
+Glimmer Cape
++15% Magic Resistance
++20 Attack Speed
+///
+Force Staff
++10 Intelligence
++4 HP Regeneration
+///
+Veil of Discord
++6 Strength
++6 Agility
++18 Intelligence
++6 HP Regeneration
++6 Damage
++6 Armor
+///
+Aether Lens
++250 Mana
++8 HP Regeneration
++15 Magic Resistance
+Cast Range Increase: 200
+Spell Damage increase: 8%
+///
+Necronomicon
++8/12/16 Strength
++15/21/24 Intelligence
+///
+Dagon
++3 Strength
++3 Agility
++16/19/22/25/28 Intelligence
++9 Damage
+///
+Eul's Scepter of Divinity
++10 Intelligence
++150% Mana Regeneration
++40 Movement Speed
+///
+Solar Crest
++75% Mana Regeneration
++10 Armor
++25% Evasion
+///
+Rod of Atos
++30 Intelligence
++350 Health
+///
+Orchid Malevolence
++25 Intelligence
++150% Mana Regeneration
++30 Damage
++30 Attack Speed
+///
+Aghanim's Scepter
++10 All Attributes
++200 Health
++150 Mana
+///
+Refresher Orb
++10 HP Regeneration
++250% Mana Regeneration
++20 Damage
+///
+Scythe of Vyse
++10 Strength
++10 Agility
++35 Intelligence
++150% Mana Regeneration
+///
+Octarine Core
++25 Intelligence
++450 Health
++400 Mana
++4 HP Regeneration
++100% Mana Regeneration
+///
+Crystalys
++30 damage
+Critical Stike Chance: 20%
+Critical Strike Damage: 175%
+///
+Armlet of Mordriggian
++7 HP Regeneration
++9 Damage
++5 Armor
++25 Attack Speed
+///
+Shadow Blade
++22 Damage
++30 Attack Speed
+///
+Skull Basher
++10 Strength
++10 Damage
+Melee Bash Chance: 25%
+Ranged Bash Chance: 10%
+Bash Damage: 120
+Bash Stun Duration: 1.4
+///
+Battle Fury
++6 HP Regeneration
++150% Mana Regeneration
++55 Damage
+Cleave Damage: 35%
+Quell Melee Damage: 160%
+Quell Ranged Damage: 125%
+Chop Tree Cast Range: 350
+Chop Ward Cast Range: 450
+///
+Ethereal Blade
++10 Strength
++40 Agility
++10 Intelligence
+///
+Silver Edge
++16 Strength
++32 Damage
++30 Attack Speed
+///
+Radiance
++65 Damage
+Burn Radius: 700
+Burn Damage per Second: 50
+Burn Miss Chance: 17%
+///
+Monkey King Bar
++66 Damage
++15 Attack Speed
+Mini-Bash Chance: 35%
+Mini-Bash Damage: 160
+Mini-Bash Stun Duraiton: 0.01
+///
+Deadalus
++81 Damage
+Critical Strike Chance: 3%
+Critical Strike Damage: 220%
+///
+Butterfly
++30 Agility
++30 Damage
++35% Evasion
++30 Attack Speed
+///
+Divine Rapier
++330
+///
+Abyssal Blade
++10 Strength
++70 Damage
+Melee Bash Chance: 25%
+Ranged Bash Chance: 10%
+Bash Damage: 120
+Bash Stun Duration: 1.4
+///
+Hood of Defiance
++9 HP Regeneration
++30% Magic Resistance
+///
+Vanguard
++250 Health
++6 HP Regeneration
+Damage Block Chance: 100%
+Melee Blocked Damage: 32
+Ranged Blocked Damage: 16
+///
+Blade Mail
++10 Inteligence
++22 Damage
++6 Armor
+///
+Soul Booster
++450 Health
++400 Mana
++4 HP Regeneration
++100% Mana Regeneration
+///
+Crimson Guard
++2 All Attributes
++250 Health
++6 HP Regeneration
++5 Armor
+Damage Block Chance: 100%
+Melee Blocked Damage: 32
+Ranged Blocked Damage: 16
+///
+Black King Bar
++10 Strength
++24 Damage
+///
+Lotus Orb
++5 HP Regeneration
++125% Mana Regeneration
++10 Damage
++10 Armor
+///
+Shiva's Guard
++30 Inteliigence
++15 Armor
+Freezeing Aura Radius: 900
+Freezing Aura Attack Speed Slow: 45
+///
+Bloodstone
++500 Health
++400 Mana
++9 HP Regeneration
++200% Mana Regeneration
+///
+Manta Style
++10 Strength
++26 Agility
++10 Intelligence
++15 Attack Speed
++10% Movement Speed
+///
+Linken's Sphere
++15 All Attributes
++6 HP Regneration
++150% Mana Regeneration
++15 Damage
+///
+Assault Cuirass
++10 Armor
++35 Attack Speed
+Assault Aura Radius: 900
+Assault Aura Allies Attack Speed Bonus: 20
+Assault Aura Allies Armor Bonus: 5
+Assault Aura Enemy Armor Reduction: 5
+///
+Heart of Tarrasque
++40 Strength
++300 Health
+Max Health Restored per Second: 4.75%
+///
+Mask of Madness
+Lifesteal: 20%
+///
+Helm of the Dominator
++3 HP Regeneration
++20 Damage
++5 Armor
+Lifesteal: 15%
+///
+Dragon Lance
++10 Strength
++10 Damage
++10 Attack Speed
+Attack Range Bonus: 130
+///
+Sange
++16 Strength
++10 Damage
+Lesser Maim Chance: 15%
+Lesser Maim Move Speed Slow: 20%
+Lesser Maim Attack Speed Slow: 20
+Lesser Maim Slow Duration: 4
+///
+Yasha
++16 Agility
++15 Attack Speed
++8% Movement Speed
+///
+Maelstrom
++24 Damage
++25 Attack Speed
+Chain Lightning Chance: 25%
+Chain Lightning Bounce Distance: 900
+Chain Lightning Number of Bounces: 4
+Chain Lightning Damage: 120
+///
+Diffusal Blade
++23/35 Agility
++10/15 Intelligence
+Mana Burned per Hit: 25
+Burned Mana as Damage: 100%
+///
+Desolator
++50 Damage
+Corruption Armor Reduction: 7
+Corruption Duration: 15
+///
+Heaven's Halberd
++20 Strength
++25 Damage
++25% Evasion
+Lesser Maim Chance: 15%
+Lesser Maim Move Speed Slow: 20%
+Lesser Maim Attack Speed Slow: 20
+Lesser Maim Slow Duration: 4
+///
+Sange and Yasha
++16 Strength
++16 Agility
++16 Damage
++16 Attack Speed
++16% Movement Speed
+Greater Maim Chance: 16%
+Greater Maim Move Speed Slow: 32%
+Greater Maim Attack Speed Slow: 32
+Greater Maim Slow Duration: 5
+///
+Eye of Skadi
++25 All Attributes
++250 Health
++250 Mana
+Cold Attack Move Speed Slow: 35%
+Cold Attack Attack Speed Slow:: 45
+Cold Attack Melee Duration: 5
+Cold Attack Ranged Duration: 2.5
+///
+Mjollnir
++24 Damage
++80 Attack Speed
+Chain Lightning Chance: 25%
+Chain Lightning Bounce Distance: 900
+Chain Lightning Bounces: 12
+Chain Lightning Damage: 150
+///
+Satanic
++25 Strength
++20 Damage
++5 Armor
+Lifesteal: 25%
+///
+Observer and Sentry Ward
+Place Ward Cast Range: 500
+Observer Ward Vision Radius: 1600
+Observer Ward Duration: 420
+Sentry Ward True Sight Radius: 850
+Sentry Ward Duration: 240

@@ -1,0 +1,52 @@
+Magic Wand:Circlet,Iron Branch,Iron Branch,Magic Stick
+Null Talisman:Circlet,Mantle of Intelligence, Recipe
+Wraith Band:Circlet,Slippers of Agility,Recipe
+Poor Man's Shield:Stout Shield,Slippers of Agility,Slippers of Agility
+Bracer:Circlet,Gauntlet of Strength,Recipe
+Soul Ring:Sage's Mask,Ring of Regen,Recipe
+Phase Boots:Blades of Attack,Blades of Attack,Boots of Speed
+Power Treads:Gloves of Haste,Belt of Strength,Boots of Speed
+Oblivion Staff:Robe of the Magi,QuarterStaff,Sage's Mask
+Perservence:Ring of Health,Void Stone
+Hand of Midas:Gloves of Haste,Recipe
+Boots of Travel:Boots of Speed,Recipe
+Moon Shard:Hyperstone,Hyperstone
+Ring of Basilius:Sage's Mask,Ring of Protection
+Iron Talon:Quelling Blade,Ring of Protection,Recipe
+Headress:Ring of Regen,Iron Branch,Recipe
+Buckler:Chainmail,Iron Branch,Recipe
+Urn of Shadows:Sage's Mask,Gauntlet of Strength,Gauntlet of Strength,Recipe
+Tranquil Boots:Ring of Regen,Ring of Protection,Boots of Speed
+Ring of Aquila:Wraith Band,Ring of Basilius
+Medallion of Courage:Chainmail,Sage's Mask, Recipe
+Arcane Boots:Energy Booster,Boots of Speed
+Drums of Endurance:Robe of the Magi,Bracer,Recipe
+Mekansm:Headress,Buckler,Recipe
+Vladmir's Offering:Ring of Basilius,Morbid Mask,Headress,Recipe
+Pipe of Insight:Hood of Defiance,Headress,Recipe
+Guardian Greaves:Arcane Boots,Mekansm,Recipe
+Glimmer Cape:Shadow Amulet,Cloak
+Force Staff:Staff of Wizardry,Ring of Regen,Recipe
+Veil of Discord:Helm of Iron Will,Null Talisman,Robe of the Magi,Robe of the Magi
+Aether Lens:Energy Booster,Ring of Health,Cloak
+Necronomicon:Staff of Wizardry,Belt of Strength,Recipe
+Dagon:Staff of Wizardry,Null Talisman,Recipe
+Eul's Scepter of Divinity:Staff of Wizardry,Sage's Mask, Void Stone,Recipe
+Solar Crest:Medallion of Courage,Talisman of Evasion
+Rod of Atos:Staff of Wizardry,Staff of Wizardry,Vitality Booster
+Orchid Malevolence:Oblivion Staff,Obvlivion Staff, Recipe
+Aghanim's Scepter:Staff of Wizardry,Blade of Alacrity,Ogre Club
+Refresher Orb:Perserverence,Perserverence, Recipe
+Scythe of Vyse:Mystic Staff,Ultimate Orb,Void Stone
+Octarine Core:Mystic Staff,Soul Booster
+Crystalys:Broadsword,Blade of Attack,Recipe
+Armlet of Mordiggian:Helm of Iron Will,Gloves of Haste,Blades of Attack,Recipe
+Shadow Blade:Claymore,Shadow Amulet
+Skull Basher:Javelin,Belt of Strength,Recipe
+Battle Fury:Broadsword,Claymore,Perserverance,Quelling Blade
+Ethereal Blade:Eaglesong,Ghost Scepter
+Silver Edge:Sange,Shadow Blade
+Radiance:Sacred Relic,Recipe
+Monkey King Bar:Javelin,Javelin,Demon Edge
+Deadalus:Crystalys,Demon Edge,Recipe
+Butterfly:Eaglesong,Talisman of Evasion,Recipe
