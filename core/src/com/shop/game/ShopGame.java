@@ -16,13 +16,13 @@ public class ShopGame extends ApplicationAdapter {
 	public void create() { //imports all the assets
 		//81 complex items and 65 basic items
 		//basic items are 0-64 and complex items are 65-145
-		batch = new SpriteBatch();
+		batch = new SpriteBatch();//contains all sprites to be drawn to the screen
 		itemTextures = new Texture[146];
 		itemSprites = new Sprite[146];
 		/**
 		 * Windows
 		 */
-		for(int i=0;i<65;i++){ //imports the basic items
+		/*for(int i=0;i<65;i++){ //imports the basic items
 			String name = "Item-Images\\Basic-Items\\BI";
 			if(i<10)
 				name = name+"0"+i+".png";
@@ -40,7 +40,7 @@ public class ShopGame extends ApplicationAdapter {
 				name = name+(i+1)+".png";
 			itemTextures[index] = new Texture(Gdx.files.internal(name));
 			itemSprites[index] = new Sprite(itemTextures[index]);
-		}
+		}*/
 		/**
 		 * Windows
 		 */
@@ -48,7 +48,7 @@ public class ShopGame extends ApplicationAdapter {
 		/**
 		 * WARNING I'M A MAC USER
 		 */
-		/*for(int i=0;i<65;i++){ //imports the basic items
+		for(int i=0;i<65;i++){ //imports the basic items
 			String name = "core/assets/Item-Images/Basic-Items/BI";
 			if(i<10)
 				name = name+"0"+i+".png";
@@ -66,10 +66,11 @@ public class ShopGame extends ApplicationAdapter {
 				name = name+(i+1)+".png";
 			itemTextures[index] = new Texture(Gdx.files.internal(name));
 			itemSprites[index] = new Sprite(itemTextures[index]);
-		}*/
+		}
 		/**
 		 * WARNING I'M A MAC USER
 		 */
+
 	}
 
 	@Override
@@ -86,7 +87,8 @@ public class ShopGame extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		batch.begin();
-		//draw everything here
+        //draw stuff here
+        itemSprites[0].draw(batch);
 		batch.end();
 	}
 }
