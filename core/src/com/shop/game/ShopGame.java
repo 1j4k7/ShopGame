@@ -125,11 +125,25 @@ public class ShopGame extends ApplicationAdapter {
     @Override
     public void render() { //renders the screen (continuously called during runtime)
 
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+        /**
+         * Input
+         */
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             itemSprites[0].setPosition(itemSprites[0].getX() + 5, itemSprites[0].getY());
-        if (Gdx.input.isButtonPressed(Input.Buttons.LEFT))
+        }
+        if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
             itemSprites[0].setPosition(0, 0);
+            guessesLeft--;
+        }
 
+        /**
+         * Updating
+         */
+        score = (int) itemSprites[0].getX();
+
+        /**
+         * Drawing
+         */
         Gdx.gl.glClearColor(0,0,0,1); //clears the background and set it black
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
