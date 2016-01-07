@@ -529,9 +529,9 @@ Monkey King Bar
 +15 Attack Speed
 Mini-Bash Chance: 35%
 Mini-Bash Damage: 160
-Mini-Bash Stun Duraiton: 0.01
+Mini-Bash Stun Duration: 0.01
 ///
-Deadalus
+Daedalus
 +81 Damage
 Critical Strike Chance: 3%
 Critical Strike Damage: 220%
@@ -565,7 +565,7 @@ Melee Blocked Damage: 32
 Ranged Blocked Damage: 16
 ///
 Blade Mail
-+10 Inteligence
++10 Intelligence
 +22 Damage
 +6 Armor
 ///
@@ -595,9 +595,9 @@ Lotus Orb
 +10 Armor
 ///
 Shiva's Guard
-+30 Inteliigence
++30 Intelligence
 +15 Armor
-Freezeing Aura Radius: 900
+Freezing Aura Radius: 900
 Freezing Aura Attack Speed Slow: 45
 ///
 Bloodstone
@@ -615,7 +615,7 @@ Manta Style
 ///
 Linken's Sphere
 +15 All Attributes
-+6 HP Regneration
++6 HP Regeneration
 +150% Mana Regeneration
 +15 Damage
 ///

@@ -54,7 +54,7 @@ Divine Rapier:Sacred Relic,Demon Edge
 Abyssal Blade:Skull Basher,Sacred Relic,Recipe
 Hood of Defiance:Ring of Health,Cloak,Ring of Regen,Ring of Regen
 Vanguard:Ring of Health,Vitality Booster,Stout Shield
-Blademail:Broadsword,Chainmail,Robe of the Magi
+Blade Mail:Broadsword,Chainmail,Robe of the Magi
 Soul Booster:Vitality Booster,Energy Booster,Point Booster
 Crimson Guard:Vanguard,Buckler,Recipe
 Black King Bar:Ogre Club,Mithril Hammer,Recipe
