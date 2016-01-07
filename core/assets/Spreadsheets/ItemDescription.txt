@@ -477,9 +477,9 @@ Armlet of Mordiggian
 Shadow Blade
 +22 Damage
 +30 Attack Speed
-Shadow Walk Fade Time:0.3
-Shadow Walk Damage:175
-Shadow Walk Duration:14
+Shadow Walk Fade Time: 0.3
+Shadow Walk Damage: 175
+Shadow Walk Duration: 14
 ///
 Skull Basher
 +10 Strength
