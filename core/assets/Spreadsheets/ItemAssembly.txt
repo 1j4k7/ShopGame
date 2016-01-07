@@ -49,4 +49,33 @@ Silver Edge:Sange,Shadow Blade
 Radiance:Sacred Relic,Recipe
 Monkey King Bar:Javelin,Javelin,Demon Edge
 Deadalus:Crystalys,Demon Edge,Recipe
-Butterfly:Eaglesong,Talisman of Evasion,Recipe
+Butterfly:Eaglesong,Talisman of Evasion,Quarterstaff
+Divine Rapier:Sacred Relic,Demon Edge
+Abyssal Blade:Skull Basher,Sacred Relic,Recipe
+Hood of Defiance:Ring of Health,Cloak,Ring of Regen,Ring of Regen
+Vanguard:Ring of Health,Vitality Booster,Stout Shield
+Blademail:Broadsword,Chainmail,Robe of the Magi
+Soul Booster:Vitality Booster,Energy Booster,Point Booster
+Crimson Guard:Vanguard,Buckler,Recipe
+Black King Bar:Ogre Club,Mithril Hammer,Recipe
+Lotus Orb:Perserverance,Platemail,Recipe
+Shiva's Guard:Mystic Staff,Platemail,Recipe
+Bloodstone:Soul Booster,Soul Ring,Recipe
+Manta Style:Yasha,Ultimate Orb,Recipe
+Linken's Sphere:Perserverance,Ultimate Orb,Recipe
+Assault Cuirass:Platemail,Hyperstone,Chainmail,Recipe
+Heart of Tarrasque:Reaver,Vitality Booster,Recipe
+Mask of Madness:Morbid Mask,Recipe
+Helm of the Dominator:Morbid Mask,Helm of Iron Will
+Dragon Lance:Ogre Club,Quarterstaff
+Sange:Ogre Club,Belt of Strength,Recipe
+Yasha:Blade of Alacrity,Band of Elvenskin,Recipe
+Maelstrom:Mithril Hammer,Gloves of Haste,Recipe
+Diffusal Blade:Blade of Alacrity,Blade of Alacrity,Robe of the Magi,Recipe
+Desolator:Mithril Hammer,Mithril Hammer,Recipe
+Heaven's Halberd:Sange,Talisman of Evasion
+Sange and Yasha:Sange,Yasha
+Eye of Skadi:Orb of Venom,Ultimate Orb,Ulitmate Orb,Point Booster
+Mjollnir:Maelstrom,Hyperstone,Recipe
+Satanic:Reaver,Helm of the Dominator,Recipe
+Observer and Sentry Wards:Observer Ward,Sentry Ward
