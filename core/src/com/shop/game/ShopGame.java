@@ -25,7 +25,10 @@ public class ShopGame extends ApplicationAdapter {
     private int consecutive;//number correct in a row
     private BitmapFont consecutiveText;
     private ArrayList<Integer> recipes;
-    private HashMap itemsDict;
+    private HashMap<String, Integer> itemsDict;
+
+    private FileHandle itemListHandle;
+    private FileHandle itemAssemblyHandle;
 
     @Override
     public void create() { //imports all the assets
@@ -34,37 +37,57 @@ public class ShopGame extends ApplicationAdapter {
         batch = new SpriteBatch();//contains all sprites to be drawn to the screen
         itemTextures = new Texture[146];
         itemSprites = new Sprite[146];
-        /**
-         * Windows
-         */
-		/*for(int i=0;i<65;i++){ //imports the basic items
-			String name = "Item-Images\\Basic-Items\\BI";
-			if(i<10)
-				name = name+"0"+i+".png";
-			else
-				name = name+i+".png";
-			itemTextures[i] = new Texture(Gdx.files.internal(name));
-			itemSprites[i] = new Sprite(itemTextures[i]);
-		}
-		for(int i=0;i<81;i++){ //imports the complex items
-			String name = "Item-Images\\Complex-Items\\CI";
-			int index = i+65;
-			if(i<9)
-				name = name+"0"+(i+1)+".png";
-			else
-				name = name+(i+1)+".png";
-			itemTextures[index] = new Texture(Gdx.files.internal(name));
-			itemSprites[index] = new Sprite(itemTextures[index]);
-		}
-        FileHandle itemListHandle = Gdx.files.internal("Spreadsheets\\ItemList.txt");
-        FileHandle itemAssemblyHandle = Gdx.files.internal("Spreadsheets\\ItemDescription.txt");*/
-        /**
-         * Windows
-         */
 
-        /**
-         * WARNING I'M A MAC USER
-         */
+        //readFilesWindows();
+        readFilesOSX();
+
+        guessesLeft = 3;
+        guessesLeftText = new BitmapFont();
+        score = 0;
+        scoreText = new BitmapFont();
+        consecutive = 0;
+        consecutiveText = new BitmapFont();
+
+        String itemList = itemListHandle.readString();
+        String[] itemString = itemList.split("\n");
+        itemsDict = new HashMap<String, Integer>();
+        for(int i=0;i<itemString.length;i++){
+            itemsDict.put(itemString[i],i);
+        }
+
+        recipes = new ArrayList<Integer>();
+        String recipesString = itemAssemblyHandle.readString();
+        String[] recipeString = recipesString.split("\n");
+        for(int i=0;i<recipeString.length;i++){
+            //make an array list of the recipes using the numerical value of the items
+        }
+    }
+
+    public void readFilesWindows() {
+        for(int i=0;i<65;i++){ //imports the basic items
+            String name = "Item-Images\\Basic-Items\\BI";
+            if(i<10)
+                name = name+"0"+i+".png";
+            else
+                name = name+i+".png";
+            itemTextures[i] = new Texture(Gdx.files.internal(name));
+            itemSprites[i] = new Sprite(itemTextures[i]);
+        }
+        for(int i=0;i<81;i++){ //imports the complex items
+            String name = "Item-Images\\Complex-Items\\CI";
+            int index = i+65;
+            if(i<9)
+                name = name+"0"+(i+1)+".png";
+            else
+                name = name+(i+1)+".png";
+            itemTextures[index] = new Texture(Gdx.files.internal(name));
+            itemSprites[index] = new Sprite(itemTextures[index]);
+        }
+        itemListHandle = Gdx.files.internal("Spreadsheets\\ItemList.txt");
+        itemAssemblyHandle = Gdx.files.internal("Spreadsheets\\ItemDescription.txt");
+    }
+
+    public void readFilesOSX() {
         for(int i=0;i<65;i++){ //imports the basic items
             String name = "core/assets/Item-Images/Basic-Items/BI";
             if(i<10)
@@ -84,32 +107,8 @@ public class ShopGame extends ApplicationAdapter {
             itemTextures[index] = new Texture(Gdx.files.internal(name));
             itemSprites[index] = new Sprite(itemTextures[index]);
         }
-        FileHandle itemListHandle = Gdx.files.internal("core/assets/Spreadsheets/ItemList.txt");
-        FileHandle itemAssemblyHandle = Gdx.files.internal("core/assets/Spreadsheets/ItemDescription.txt");
-        /**
-         * WARNING I'M A MAC USER
-         */
-
-        guessesLeft = 3;
-        guessesLeftText = new BitmapFont();
-        score = 0;
-        scoreText = new BitmapFont();
-        consecutive = 0;
-        consecutiveText = new BitmapFont();
-
-        String itemList = itemListHandle.readString();
-        String[] itemString = itemList.split("\n");
-        itemsDict = new HashMap();
-        for(int i=0;i<itemString.length;i++){
-            itemsDict.put(itemString[i],i);
-        }
-
-        recipes = new ArrayList<Integer>();
-        String recipesString = itemAssemblyHandle.readString();
-        String[] recipeString = recipesString.split("\n");
-        for(int i=0;i<recipeString.length;i++){
-            //make an array list of the recipes using the numerical value of the items
-        }
+        itemListHandle = Gdx.files.internal("core/assets/Spreadsheets/ItemList.txt");
+        itemAssemblyHandle = Gdx.files.internal("core/assets/Spreadsheets/ItemDescription.txt");
     }
 
     @Override
