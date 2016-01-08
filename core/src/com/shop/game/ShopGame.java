@@ -37,7 +37,7 @@ public class ShopGame extends ApplicationAdapter {
         /**
          * Windows
          */
-		for(int i=0;i<65;i++){ //imports the basic items
+		/*for(int i=0;i<65;i++){ //imports the basic items
 			String name = "Item-Images\\Basic-Items\\BI";
 			if(i<10)
 				name = name+"0"+i+".png";
@@ -56,6 +56,8 @@ public class ShopGame extends ApplicationAdapter {
 			itemTextures[index] = new Texture(Gdx.files.internal(name));
 			itemSprites[index] = new Sprite(itemTextures[index]);
 		}
+        FileHandle itemListHandle = Gdx.files.internal("Spreadsheets\\ItemList.txt");
+        FileHandle itemAssemblyHandle = Gdx.files.internal("Spreadsheets\\ItemDescription.txt");*/
         /**
          * Windows
          */
@@ -63,7 +65,7 @@ public class ShopGame extends ApplicationAdapter {
         /**
          * WARNING I'M A MAC USER
          */
-        /*for(int i=0;i<65;i++){ //imports the basic items
+        for(int i=0;i<65;i++){ //imports the basic items
             String name = "core/assets/Item-Images/Basic-Items/BI";
             if(i<10)
                 name = name+"0"+i+".png";
@@ -81,7 +83,9 @@ public class ShopGame extends ApplicationAdapter {
                 name = name+(i+1)+".png";
             itemTextures[index] = new Texture(Gdx.files.internal(name));
             itemSprites[index] = new Sprite(itemTextures[index]);
-        }*/
+        }
+        FileHandle itemListHandle = Gdx.files.internal("core/assets/Spreadsheets/ItemList.txt");
+        FileHandle itemAssemblyHandle = Gdx.files.internal("core/assets/Spreadsheets/ItemDescription.txt");
         /**
          * WARNING I'M A MAC USER
          */
@@ -92,9 +96,6 @@ public class ShopGame extends ApplicationAdapter {
         scoreText = new BitmapFont();
         consecutive = 0;
         consecutiveText = new BitmapFont();
-
-        FileHandle itemListHandle = Gdx.files.internal("Spreadsheets\\ItemList.txt");
-        FileHandle itemAssemblyHandle = Gdx.files.internal("Spreadsheets\\ItemDescription.txt");
 
         String itemList = itemListHandle.readString();
         String[] itemString = itemList.split("\n");
@@ -122,24 +123,12 @@ public class ShopGame extends ApplicationAdapter {
         consecutiveText.dispose();
     }
 
+    //continuously called during runtime)
     @Override
-    public void render() { //renders the screen (continuously called during runtime)
+    public void render() {
 
-        /**
-         * Input
-         */
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            itemSprites[0].setPosition(itemSprites[0].getX() + 5, itemSprites[0].getY());
-        }
-        if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-            itemSprites[0].setPosition(0, 0);
-            guessesLeft--;
-        }
-
-        /**
-         * Updating
-         */
-        score = (int) itemSprites[0].getX();
+        getInput();
+        update();
 
         /**
          * Drawing
@@ -153,5 +142,25 @@ public class ShopGame extends ApplicationAdapter {
         consecutiveText.draw(batch, consecutive +" in a row", Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2 - 50);
         itemSprites[0].draw(batch);
         batch.end();
+    }
+
+    /**
+     * Checks for Input and updates anything accordingly
+     */
+    public void getInput() {
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            itemSprites[0].setPosition(itemSprites[0].getX() + 5, itemSprites[0].getY());
+        }
+        if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+            itemSprites[0].setPosition(0, 0);
+            guessesLeft--;
+        }
+    }
+
+    /**
+     * Method to update the state of the game but doesn't actually "render anything to the screen"
+     */
+    public void update() {
+        score = (int) itemSprites[0].getX();
     }
 }
