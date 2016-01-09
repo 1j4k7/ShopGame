@@ -345,7 +345,7 @@ Arcane Boots
 +250 Mana
 +50 Movement Speed
 ///
-Drum of Endurance
+Drums of Endurance
 +9 All Attributes
 +3 Damage
 Swiftness Aura Radius: 900
@@ -722,7 +722,7 @@ Satanic
 +5 Armor
 Lifesteal: 25%
 ///
-Observer and Sentry Ward
+Observer and Sentry Wards
 Place Ward Cast Range: 500
 Observer Ward Vision Radius: 1600
 Observer Ward Duration: 420

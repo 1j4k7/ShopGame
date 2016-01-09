@@ -50,7 +50,7 @@ Shadow Amulet
 Ghost Scepter
 Blink Dagger
 Energy Booster
-vitality Booster
+Vitality Booster
 Point Booster
 Platemail
 Talisman of Evasion
@@ -70,7 +70,7 @@ Poor Man's Shield
 Bracer
 Soul Ring
 Phase Boots
-Power Tread
+Power Treads
 Oblivion Staff
 Perseverance
 Hand of Midas
@@ -85,7 +85,7 @@ Tranquil Boots
 Ring of Aquila
 Medallion of Courage
 Arcane Boots
-Drum of Endurance
+Drums of Endurance
 Mekansm
 Vladmir's Offering
 Pipe of Insight
@@ -93,7 +93,7 @@ Guardian Greaves
 Glimmer Cape
 Force Staff
 Veil of Discord
-Aether Lends
+Aether Lens
 Necronomicon
 Dagon
 Eul's Scepter of Divinity
@@ -117,7 +117,7 @@ Daedalus
 Butterfly
 Divine Rapier
 Abyssal Blade
-Hood of defiance
+Hood of Defiance
 Vanguard
 Blade Mail
 Soul Booster
@@ -143,5 +143,5 @@ Sange and Yasha
 Eye of Skadi
 Mjollnir
 Satanic
-Observer Wards and Sentry Wards
+Observer and Sentry Wards
 Boots of Travel Level 2
