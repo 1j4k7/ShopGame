@@ -93,6 +93,8 @@ public class ShopGame extends ApplicationAdapter {
             String description = descriptionString.substring(descriptionString.indexOf("\n")+1);
             itemsDict.get(item).setDescription(description);
         }
+
+        //System.out.println(itemsDict.get("Magic Stick"));
     }
 
     public void readFilesWindows() {
@@ -105,7 +107,7 @@ public class ShopGame extends ApplicationAdapter {
             itemTextures[i] = new Texture(Gdx.files.internal(name));
             itemSprites[i] = new Sprite(itemTextures[i]);
         }
-        for(int i=0;i<81;i++){ //imports the complex items
+        for(int i=0;i<82;i++){ //imports the complex items
             String name = "Item-Images\\Complex-Items\\CI";
             int index = i+65;
             if(i<9)
@@ -130,7 +132,7 @@ public class ShopGame extends ApplicationAdapter {
             itemTextures[i] = new Texture(Gdx.files.internal(name));
             itemSprites[i] = new Sprite(itemTextures[i]);
         }
-        for(int i=0;i<81;i++){ //imports the complex items
+        for(int i=0;i<82;i++){ //imports the complex items
             String name = "core/assets/Item-Images/Complex-Items/CI";
             int index = i+65;
             if(i<9)
@@ -147,11 +149,8 @@ public class ShopGame extends ApplicationAdapter {
 
     @Override
     public void dispose() { //disposes of all the assets
-        int i = 1;
         for(Texture itemTexture: itemTextures) {
-            System.out.println(i);
             itemTexture.dispose();
-            i++;
         }
         batch.dispose();
         shapeRenderer.dispose();
@@ -160,7 +159,7 @@ public class ShopGame extends ApplicationAdapter {
         consecutiveText.dispose();
     }
 
-    //continuously called during runtime)
+    //continuously called during runtime
     @Override
     public void render() {
 
@@ -173,8 +172,9 @@ public class ShopGame extends ApplicationAdapter {
         guessesLeftText.draw(batch, "Guesses Left: " + guessesLeft, Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2 - 10);
         scoreText.draw(batch, "Score: " + score, Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2 - 30);
         consecutiveText.draw(batch, consecutive +" in a row", Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2 - 50);
-        Item item = itemsDict.get("Blink Dagger");
-        item.getIcon().draw(batch);
+        itemSprites[itemSprites.length - 1].draw(batch);
+        //Item item = itemsDict.get("Blink Dagger");
+        //item.getIcon().draw(batch);
         batch.end();
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
