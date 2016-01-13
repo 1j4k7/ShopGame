@@ -66,4 +66,24 @@ public class Item {
     public boolean contains(Item item) {
         return components.contains(item);
     }
+
+    /**
+     * Checks whether all the items in <code>components</code> are the correct components of the recipe of this item
+     * @param components the list of items being compared to the components of this item
+     * @return true if the components are the same, otherwise false
+     */
+    public boolean isRecipe(ArrayList<Item> components){
+        ArrayList<Item> tempComponents = new ArrayList<Item>(this.components);
+        boolean isComplete=true;
+        Loop: for(int i=0;i<components.size();i++){
+            if(tempComponents.indexOf(components.get(i)) == -1){
+                isComplete = false;
+                break Loop;
+            }else{
+                tempComponents.remove(components.get(i));
+            }
+        }
+        return isComplete;
+    }
+
 }

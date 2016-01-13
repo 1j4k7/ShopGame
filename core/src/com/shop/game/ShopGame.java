@@ -30,6 +30,7 @@ public class ShopGame extends ApplicationAdapter {
     private Item mainItem;
     private ArrayList<Item> componentItems;
     private ArrayList<Item> choiceItems;
+    private ArrayList<String> itemsNameArray = new ArrayList<String>();
 
     //map of all items (key: name, value:Item)
     private HashMap<String, Item> itemsDict;
@@ -74,8 +75,10 @@ public class ShopGame extends ApplicationAdapter {
 
         createItemDict();
 
-        Item[] itemsArray = itemsDict.values().toArray(new Item[147]);
-        mainItem = itemsArray[(int)(Math.random()*81)+65];
+        //Item[] itemsArray = itemsDict.values().toArray(new Item[147]);
+
+        mainItem = itemsDict.get(itemsNameArray.get((int)(Math.random()*81)+65));
+        //mainItem = itemsArray[(int)(Math.random()*81)+65];
         componentItems = new ArrayList<Item>(5);
         for (Item component: mainItem.getComponents()) {
             componentItems.add(component);
@@ -172,6 +175,7 @@ public class ShopGame extends ApplicationAdapter {
         itemsDict = new HashMap<String, Item>();
         for(int i = 0; i < itemStrings.length; i++) {
             itemsDict.put(itemStrings[i], new Item(itemStrings[i], itemSprites[i]));
+            itemsNameArray.add(itemStrings[i]);
         }
 
         //gives all items their build components
