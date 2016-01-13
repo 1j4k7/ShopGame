@@ -30,6 +30,7 @@ public class ShopGame extends ApplicationAdapter {
     private Item mainItem;
     private ArrayList<Item> componentItems;
     private ArrayList<Item> choiceItems;
+    private ArrayList<Item> selectedItems;
     private ArrayList<String> itemsNameArray = new ArrayList<String>();
 
     //map of all items (key: name, value:Item)
@@ -53,6 +54,7 @@ public class ShopGame extends ApplicationAdapter {
     private ArrayList<Rectangle> componentBoxes;
     private Rectangle[] choiceBoxes;
     private Rectangle recipeBox;
+    private Rectangle[] selectedBoxes;
     public static final float RECTANGLE_WIDTH = 60;
     public static final float RECTANGLE_HEIGHT = 45;
 
@@ -103,6 +105,8 @@ public class ShopGame extends ApplicationAdapter {
         }
         recipeBox = new Rectangle(Gdx.graphics.getWidth()/2 + 250, Gdx.graphics.getHeight()/2 - 70, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
 
+        selectedBoxes = new Rectangle[mainItem.getComponents().size()];
+        drawSelectedBoxes();
 
         //Music
         try {
@@ -207,6 +211,27 @@ public class ShopGame extends ApplicationAdapter {
         }
     }
 
+    private void drawSelectedBoxes() {
+        if(selectedBoxes.length == 1){
+            selectedBoxes[0] = new Rectangle(Gdx.graphics.getWidth()/2 - RECTANGLE_WIDTH/2, Gdx.graphics.getHeight()/2 + 15, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+        }else if(selectedBoxes.length == 2){
+            for(int i=0;i<2;i++){
+                selectedBoxes[i] = new Rectangle(Gdx.graphics.getWidth()/2 - 65 + i*70, Gdx.graphics.getHeight()/2 + 15, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+            }
+        }else if(selectedBoxes.length == 3){
+            for(int i=0;i<3;i++) {
+                selectedBoxes[i] = new Rectangle(Gdx.graphics.getWidth()/2 - 100 + i*70, Gdx.graphics.getHeight()/2 + 15, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+            }
+        }else if(selectedBoxes.length == 4){
+            for(int i=0;i<4;i++) {
+                selectedBoxes[i] = new Rectangle(Gdx.graphics.getWidth()/2 - 135 + i*70, Gdx.graphics.getHeight()/2 + 15, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+            }
+        }else{
+            System.out.println("Aaron can't count and the max number of items in a recipe is "+selectedBoxes.length);
+            System.exit(2);
+        }
+    }
+
     @Override
     public void dispose() { //disposes of all the assets
         for(Texture itemTexture: itemTextures) {
@@ -251,6 +276,9 @@ public class ShopGame extends ApplicationAdapter {
             shapeRenderer.rect(choiceBoxes[i].getX(), choiceBoxes[i].getY(), choiceBoxes[i].getWidth(), choiceBoxes[i].getHeight());
         }
         shapeRenderer.rect(recipeBox.getX(), recipeBox.getY(), recipeBox.getWidth(), recipeBox.getHeight());
+        for(int i=0;i<selectedBoxes.length;i++) {
+            shapeRenderer.rect(selectedBoxes[i].getX(), selectedBoxes[i].getY(), selectedBoxes[i].getWidth(), selectedBoxes[i].getHeight());
+        }
         shapeRenderer.end();
     }
 
