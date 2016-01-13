@@ -75,13 +75,19 @@ public class Item {
     public boolean isRecipe(ArrayList<Item> components){
         ArrayList<Item> tempComponents = new ArrayList<Item>(this.components);
         boolean isComplete=true;
+        boolean found = false;
         Loop: for(int i=0;i<components.size();i++){
-            if(tempComponents.indexOf(components.get(i)) == -1){
+            for(int j=0;j<tempComponents.size();j++){
+                if(components.get(i).getName().equals(tempComponents.get(j).getName())){
+                    tempComponents.remove(j);
+                    found = true;
+                }
+            }
+            if(!found) {
                 isComplete = false;
                 break Loop;
-            }else{
-                tempComponents.remove(components.get(i));
             }
+            found = false;
         }
         return isComplete;
     }

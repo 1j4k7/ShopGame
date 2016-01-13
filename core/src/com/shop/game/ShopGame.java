@@ -79,7 +79,7 @@ public class ShopGame extends ApplicationAdapter {
         createItemDict();
 
         mainItem = itemsDict.get(itemsNameArray.get((int)(Math.random()*81)+65));
-        componentItems = new ArrayList<Item>(5);
+        componentItems = new ArrayList<Item>();
         for (Item component: mainItem.getComponents()) {
             componentItems.add(copyItem(component));
         }
@@ -316,6 +316,60 @@ public class ShopGame extends ApplicationAdapter {
                     selectedItems.add(itemSelected);
                     itemSelected.getIcon().setPosition(selectedBoxes[selectedItems.size()-1].getX(), selectedBoxes[selectedItems.size()-1].getY());
                 }
+                if(selectedItems.size() == selectedBoxes.length){
+                    if(mainItem.isRecipe(selectedItems)){
+                        consecutive++;
+                        guessesLeft=3;
+
+                        selectedItems = new ArrayList<Item>();
+
+                        mainItem = itemsDict.get(itemsNameArray.get((int)(Math.random()*81)+65));
+                        componentItems = new ArrayList<Item>();
+                        for (Item component: mainItem.getComponents()) {
+                            componentItems.add(copyItem(component));
+                        }
+                        ArrayList<Item> choiceItemsTemp = new ArrayList<Item>();
+                        choiceItemsTemp.addAll(mainItem.getComponents());
+                        if(choiceItemsTemp.get(choiceItemsTemp.size()-1).getName().equals("Recipe")) {
+                            choiceItemsTemp.remove(choiceItemsTemp.size() - 1);
+                        }
+                        for(int i=0;choiceItemsTemp.size()<8;i++){
+                            choiceItemsTemp.add(copyItem(itemsDict.get(itemsNameArray.get((int)(Math.random()*146)+1))));
+                        }
+                        choiceItems = new ArrayList<Item>();
+                        for(int i=0;i<8;i++){
+                            int num = (int)(Math.random()*choiceItemsTemp.size());
+                            choiceItems.add(choiceItemsTemp.get(num));
+                            choiceItemsTemp.remove(num);
+                        }
+                        guessesLeftText = new BitmapFont();
+                        scoreText = new BitmapFont();
+                        consecutiveText = new BitmapFont();
+                        mainItemBox = new Rectangle(Gdx.graphics.getWidth()/2 - RECTANGLE_WIDTH/2, Gdx.graphics.getHeight()/2 + 100, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+                        choiceBoxes = new Rectangle[8];
+                        for (int i = 0; i < choiceBoxes.length; i++) {
+                            choiceBoxes[i] = new Rectangle(Gdx.graphics.getWidth()/2 - 310 + i*70, Gdx.graphics.getHeight()/2 - 70, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+                        }
+                        recipeBox = new Rectangle(Gdx.graphics.getWidth()/2 + 250, Gdx.graphics.getHeight()/2 - 70, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+
+                        selectedBoxes = new Rectangle[mainItem.getComponents().size()];
+                        drawSelectedBoxes();
+                        isSetup = true;
+                        //you got it right
+                    }else{
+                        if(guessesLeft > 0){
+                            guessesLeft--;
+                            consecutive=0;
+                        }else {
+                            //game over
+                        }
+                    }
+                }
+                try{
+                    Thread.sleep(100);
+                }catch (InterruptedException e){
+                    Thread.currentThread().interrupt();
+                }
             }
             itemSelected = null;
             int index = 0;
@@ -340,7 +394,7 @@ public class ShopGame extends ApplicationAdapter {
                     selectedItems.get(i).getIcon().setPosition(selectedBoxes[i].getX(), selectedBoxes[i].getY());
                 }
                 try{
-                    Thread.sleep(250);
+                    Thread.sleep(100);
                 }catch(InterruptedException e){
                     Thread.currentThread().interrupt();
                 }
