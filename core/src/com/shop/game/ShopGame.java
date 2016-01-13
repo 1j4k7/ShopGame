@@ -54,8 +54,8 @@ public class ShopGame extends ApplicationAdapter {
         itemSprites = new Sprite[147];
         shapeRenderer = new ShapeRenderer();
 
-        //readFilesWindows();
-        readFilesOSX();
+        readFilesWindows();
+        //readFilesOSX();
 
         guessesLeft = 3;
         guessesLeftText = new BitmapFont();
@@ -66,7 +66,7 @@ public class ShopGame extends ApplicationAdapter {
 
         //puts items in the item dict with icons
         String itemsString = itemListHandle.readString();
-        String[] itemStrings = itemsString.split("\n");
+        String[] itemStrings = itemsString.split("\r\n");
         itemsDict = new HashMap<String, Item>();
         for(int i = 0; i < itemStrings.length; i++) {
            itemsDict.put(itemStrings[i], new Item(itemStrings[i], itemSprites[i]));
@@ -74,7 +74,7 @@ public class ShopGame extends ApplicationAdapter {
 
         //gives all items their build components
         String recipesString = itemAssemblyHandle.readString();
-        String[] recipeStrings = recipesString.split("\n");
+        String[] recipeStrings = recipesString.split("\r\n");
         for(String recipeString: recipeStrings) {
             String item = recipeString.substring(0, recipeString.indexOf(":"));
             String[] componentStrings = recipeString.substring(recipeString.indexOf(":")+1).split(",");
@@ -87,10 +87,10 @@ public class ShopGame extends ApplicationAdapter {
 
         //gives all items their descriptions
         String descriptionsString = itemDescriptionHandle.readString();
-        String[] descriptionStrings = descriptionsString.split("///\n");
+        String[] descriptionStrings = descriptionsString.split("///\r\n");
         for (String descriptionString: descriptionStrings) {
-            String item = descriptionString.substring(0, descriptionString.indexOf("\n"));
-            String description = descriptionString.substring(descriptionString.indexOf("\n")+1);
+            String item = descriptionString.substring(0, descriptionString.indexOf("\r\n"));
+            String description = descriptionString.substring(descriptionString.indexOf("\r\n")+1);
             itemsDict.get(item).setDescription(description);
         }
 
