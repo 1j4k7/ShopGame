@@ -123,6 +123,7 @@ public class ShopGame extends ApplicationAdapter {
                 name = name+i+".png";
             itemTextures[i] = new Texture(Gdx.files.internal(name));
             itemSprites[i] = new Sprite(itemTextures[i]);
+            itemSprites[i].setSize(RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
         }
         for(int i=0;i<82;i++){ //imports the complex items
             String name = "Item-Images\\Complex-Items\\CI";
@@ -133,6 +134,7 @@ public class ShopGame extends ApplicationAdapter {
                 name = name+(i+1)+".png";
             itemTextures[index] = new Texture(Gdx.files.internal(name));
             itemSprites[index] = new Sprite(itemTextures[index]);
+            itemSprites[index].setSize(RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
         }
         backgroundSprite = new Sprite(new Texture(Gdx.files.internal("shopGameBackground.png")));
         backgroundSprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -231,6 +233,12 @@ public class ShopGame extends ApplicationAdapter {
         backgroundSprite.draw(batch);
         mainItem.getIcon().draw(batch);
         mainItem.getIcon().setPosition(mainItemBox.getX(), mainItemBox.getY());
+        for(int i=0;i<8;i++){
+            choiceItems.get(i).getIcon().draw(batch);
+            choiceItems.get(i).getIcon().setPosition(choiceBoxes[i].getX(), choiceBoxes[i].getY());
+        }
+        itemsDict.get("Recipe").getIcon().draw(batch);
+        itemsDict.get("Recipe").getIcon().setPosition(recipeBox.getX(), recipeBox.getY());
         guessesLeftText.draw(batch, "Guesses Left: " + guessesLeft, Gdx.graphics.getWidth() / 2 - 50, Gdx.graphics.getHeight() / 2 - 100);
         scoreText.draw(batch, "Score: " + score, Gdx.graphics.getWidth()/2 - 30, Gdx.graphics.getHeight()/2 - 120);
         consecutiveText.draw(batch, consecutive +" in a row", Gdx.graphics.getWidth()/2 - 35, Gdx.graphics.getHeight()/2 - 140);
@@ -251,8 +259,20 @@ public class ShopGame extends ApplicationAdapter {
      */
     public void getInput() {
         if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-            itemsDict.get("Blink Dagger").getIcon().setPosition(0, 0);
-            guessesLeft--;
+            Item itemSelected = null;
+            for(int i=0;i<8;i++){
+                if(choiceBoxes[i].contains(Gdx.input.getX(), Gdx.graphics.getHeight()-Gdx.input.getY())){
+                    itemSelected = choiceItems.get(i);
+                }
+            }
+            if(recipeBox.contains(Gdx.input.getX(), Gdx.input.getY())){
+                itemSelected = itemsDict.get("Recipe");
+            }
+            if(itemSelected != null){
+                guessesLeft--;
+            }
+            /**itemsDict.get("Blink Dagger").getIcon().setPosition(0, 0);
+            guessesLeft--;*/
         }
     }
 
