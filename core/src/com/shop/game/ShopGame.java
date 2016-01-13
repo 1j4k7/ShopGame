@@ -75,15 +75,19 @@ public class ShopGame extends ApplicationAdapter {
 
         createItemDict();
 
-        //Item[] itemsArray = itemsDict.values().toArray(new Item[147]);
-
         mainItem = itemsDict.get(itemsNameArray.get((int)(Math.random()*81)+65));
-        //mainItem = itemsArray[(int)(Math.random()*81)+65];
         componentItems = new ArrayList<Item>(5);
         for (Item component: mainItem.getComponents()) {
             componentItems.add(component);
         }
-        choiceItems = new ArrayList<Item>(8);
+        choiceItems = new ArrayList<Item>();
+        choiceItems.addAll(mainItem.getComponents());
+        if(choiceItems.indexOf(itemsDict.get("Recipe")) != -1){
+            choiceItems.remove(itemsDict.get("Recipe"));
+        }
+        for(int i=0;choiceItems.size()<8;i++){
+            choiceItems.add(itemsDict.get(itemsNameArray.get((int)(Math.random()*147))));
+        }
 
         //graphics
         guessesLeft = 3;
