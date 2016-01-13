@@ -71,8 +71,8 @@ public class ShopGame extends ApplicationAdapter {
         shapeRenderer = new ShapeRenderer();
         Gdx.graphics.setTitle("The Shopkeeper's Quiz");
 
-        readFilesWindows();
-        //readFilesOSX();
+        //readFilesWindows();
+        readFilesOSX();
 
         createItemDict();
 
@@ -228,8 +228,12 @@ public class ShopGame extends ApplicationAdapter {
             for(int i=0;i<4;i++) {
                 selectedBoxes[i] = new Rectangle(Gdx.graphics.getWidth()/2 - 135 + i*70, Gdx.graphics.getHeight()/2 + 15, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
             }
+        }else if(selectedBoxes.length == 5){
+            for(int i=0; i<5; i++) {
+                selectedBoxes[i] = new Rectangle(Gdx.graphics.getWidth()/2 - 170 + i*70, Gdx.graphics.getHeight()/2 + 15, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+            }
         }else{
-            System.out.println("Aaron can't count and the max number of items in a recipe is "+selectedBoxes.length);
+            System.out.println("Jason can't count and the max number of items in a recipe is "+selectedBoxes.length);
             System.exit(2);
         }
     }
