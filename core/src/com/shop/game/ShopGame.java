@@ -117,6 +117,7 @@ public class ShopGame extends ApplicationAdapter {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public void readFilesWindows() {
@@ -313,7 +314,6 @@ public class ShopGame extends ApplicationAdapter {
                 if(selectedItems.size() == selectedBoxes.length){
                     if(mainItem.isRecipe(selectedItems)){
                         consecutive++;
-                        guessesLeft=3;
 
                         selectedItems = new ArrayList<Item>();
 
