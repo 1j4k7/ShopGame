@@ -58,16 +58,6 @@ public class Item {
     }
 
     /**
-     * Checks whether <code>item</code> is a component of this <code>item</code>.
-     *
-     * @param item the item being checked
-     * @return true if <code>item</code> is a component of this <code>item</code>, false otherwise.
-     */
-    public boolean contains(Item item) {
-        return components.contains(item);
-    }
-
-    /**
      * Checks whether all the items in <code>components</code> are the correct components of the recipe of this item
      * @param components the list of items being compared to the components of this item
      * @return true if the components are the same, otherwise false
@@ -76,7 +66,7 @@ public class Item {
         ArrayList<Item> tempComponents = new ArrayList<Item>(this.components);
         boolean isComplete=true;
         boolean found = false;
-        Loop: for(int i=0;i<components.size();i++){
+        for(int i=0;i<components.size();i++){
             for(int j=0;j<tempComponents.size();j++){
                 if(components.get(i).getName().equals(tempComponents.get(j).getName())){
                     tempComponents.remove(j);
@@ -85,7 +75,7 @@ public class Item {
             }
             if(!found) {
                 isComplete = false;
-                break Loop;
+                i=tempComponents.size();
             }
             found = false;
         }

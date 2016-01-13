@@ -28,7 +28,6 @@ public class ShopGame extends ApplicationAdapter {
 
     //general
     private Item mainItem;
-    private ArrayList<Item> componentItems;
     private ArrayList<Item> choiceItems;
     private ArrayList<Item> selectedItems = new ArrayList<Item>();
     private ArrayList<String> itemsNameArray = new ArrayList<String>();
@@ -52,7 +51,6 @@ public class ShopGame extends ApplicationAdapter {
     private Sprite backgroundSprite;
     private ShapeRenderer shapeRenderer;
     private Rectangle mainItemBox;
-    private ArrayList<Rectangle> componentBoxes;
     private Rectangle[] choiceBoxes;
     private Rectangle recipeBox;
     private Rectangle[] selectedBoxes;
@@ -79,16 +77,12 @@ public class ShopGame extends ApplicationAdapter {
         createItemDict();
 
         mainItem = itemsDict.get(itemsNameArray.get((int)(Math.random()*81)+65));
-        componentItems = new ArrayList<Item>();
-        for (Item component: mainItem.getComponents()) {
-            componentItems.add(copyItem(component));
-        }
         ArrayList<Item> choiceItemsTemp = new ArrayList<Item>();
         choiceItemsTemp.addAll(mainItem.getComponents());
         if(choiceItemsTemp.get(choiceItemsTemp.size()-1).getName().equals("Recipe")) {
             choiceItemsTemp.remove(choiceItemsTemp.size() - 1);
         }
-        for(int i=0;choiceItemsTemp.size()<8;i++){
+        while(choiceItemsTemp.size()<8){
             choiceItemsTemp.add(copyItem(itemsDict.get(itemsNameArray.get((int)(Math.random()*146)+1))));
         }
         choiceItems = new ArrayList<Item>();
@@ -324,16 +318,12 @@ public class ShopGame extends ApplicationAdapter {
                         selectedItems = new ArrayList<Item>();
 
                         mainItem = itemsDict.get(itemsNameArray.get((int)(Math.random()*81)+65));
-                        componentItems = new ArrayList<Item>();
-                        for (Item component: mainItem.getComponents()) {
-                            componentItems.add(copyItem(component));
-                        }
                         ArrayList<Item> choiceItemsTemp = new ArrayList<Item>();
                         choiceItemsTemp.addAll(mainItem.getComponents());
                         if(choiceItemsTemp.get(choiceItemsTemp.size()-1).getName().equals("Recipe")) {
                             choiceItemsTemp.remove(choiceItemsTemp.size() - 1);
                         }
-                        for(int i=0;choiceItemsTemp.size()<8;i++){
+                        while(choiceItemsTemp.size()<8){
                             choiceItemsTemp.add(copyItem(itemsDict.get(itemsNameArray.get((int)(Math.random()*146)+1))));
                         }
                         choiceItems = new ArrayList<Item>();
