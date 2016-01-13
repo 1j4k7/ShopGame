@@ -1,8 +1,10 @@
 package com.shop.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -22,11 +24,12 @@ public class ShopGame extends ApplicationAdapter {
     private FileHandle itemListHandle;
     private FileHandle itemAssemblyHandle;
     private FileHandle itemDescriptionHandle;
+    private FileHandle musicHandle;
 
     //general
-    private SpriteBatch batch;
-    private Texture[] itemTextures;
-    private Sprite[] itemSprites;
+    private Item mainItem;
+    private ArrayList<Item> componentItems;
+    private ArrayList<Item> choiceItems;
 
     //map of all items (key: name, value:Item)
     private HashMap<String, Item> itemsDict;
@@ -40,61 +43,68 @@ public class ShopGame extends ApplicationAdapter {
     private BitmapFont consecutiveText;
 
     //graphics
+    private SpriteBatch batch;
+    private Texture[] itemTextures;
+    private Sprite[] itemSprites;
+    private Sprite backgroundSprite;
     private ShapeRenderer shapeRenderer;
     private Rectangle mainItemBox;
     private ArrayList<Rectangle> componentBoxes;
-    private ArrayList<Rectangle> choiceBoxes;
+    private Rectangle[] choiceBoxes;
+    private Rectangle recipeBox;
+    public static final float RECTANGLE_WIDTH = 60;
+    public static final float RECTANGLE_HEIGHT = 45;
+
+    //audio
+    private Music backgroundMusic;
 
     @Override
-    public void create() { //imports all the assets
+    public void create() {
+        Gdx.graphics.setDisplayMode(1000, 600, false);
         //81 complex items and 65 basic items
         //basic items are 0-64 and complex items are 65-146
         batch = new SpriteBatch();//contains all sprites to be drawn to the screen
         itemTextures = new Texture[147];
         itemSprites = new Sprite[147];
         shapeRenderer = new ShapeRenderer();
+        Gdx.graphics.setTitle("The Shopkeeper's Quiz");
 
-        readFilesWindows();
-        //readFilesOSX();
+        //readFilesWindows();
+        readFilesOSX();
 
+        createItemDict();
+
+        Item[] itemsArray = itemsDict.values().toArray(new Item[147]);
+        mainItem = itemsArray[(int)(Math.random()*81)+65];
+        componentItems = new ArrayList<Item>(5);
+        for (Item component: mainItem.getComponents()) {
+            componentItems.add(component);
+        }
+        choiceItems = new ArrayList<Item>(8);
+
+        //graphics
         guessesLeft = 3;
         guessesLeftText = new BitmapFont();
         score = 0;
         scoreText = new BitmapFont();
         consecutive = 0;
         consecutiveText = new BitmapFont();
-
-        //puts items in the item dict with icons
-        String itemsString = itemListHandle.readString();
-        String[] itemStrings = itemsString.split("\r\n");
-        itemsDict = new HashMap<String, Item>();
-        for(int i = 0; i < itemStrings.length; i++) {
-           itemsDict.put(itemStrings[i], new Item(itemStrings[i], itemSprites[i]));
+        mainItemBox = new Rectangle(Gdx.graphics.getWidth()/2 - RECTANGLE_WIDTH/2, Gdx.graphics.getHeight()/2 + 100, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+        choiceBoxes = new Rectangle[8];
+        for (int i = 0; i < choiceBoxes.length; i++) {
+            choiceBoxes[i] = new Rectangle(Gdx.graphics.getWidth()/2 - 310 + i*70, Gdx.graphics.getHeight()/2 - 70, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
         }
+        recipeBox = new Rectangle(Gdx.graphics.getWidth()/2 + 250, Gdx.graphics.getHeight()/2 - 70, RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
 
-        //gives all items their build components
-        String recipesString = itemAssemblyHandle.readString();
-        String[] recipeStrings = recipesString.split("\r\n");
-        for(String recipeString: recipeStrings) {
-            String item = recipeString.substring(0, recipeString.indexOf(":"));
-            String[] componentStrings = recipeString.substring(recipeString.indexOf(":")+1).split(",");
-            ArrayList<Item> components = new ArrayList<Item>();
-            for (String componentString: componentStrings) {
-                components.add(itemsDict.get(componentString));
-            }
-            itemsDict.get(item).setComponents(components);
+
+        //Music
+        try {
+            backgroundMusic = Gdx.audio.newMusic(musicHandle);
+            //backgroundMusic.play();
+            backgroundMusic.setLooping(true);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        //gives all items their descriptions
-        String descriptionsString = itemDescriptionHandle.readString();
-        String[] descriptionStrings = descriptionsString.split("///\r\n");
-        for (String descriptionString: descriptionStrings) {
-            String item = descriptionString.substring(0, descriptionString.indexOf("\r\n"));
-            String description = descriptionString.substring(descriptionString.indexOf("\r\n")+1);
-            itemsDict.get(item).setDescription(description);
-        }
-
-        //System.out.println(itemsDict.get("Magic Stick"));
     }
 
     public void readFilesWindows() {
@@ -120,6 +130,7 @@ public class ShopGame extends ApplicationAdapter {
         itemListHandle = Gdx.files.internal("Spreadsheets\\ItemList.txt");
         itemAssemblyHandle = Gdx.files.internal("Spreadsheets\\ItemAssembly.txt");
         itemDescriptionHandle = Gdx.files.internal("Spreadsheets\\ItemDescription.txt");
+        musicHandle = Gdx.files.internal("Music/Dota_2_-_Reborn.mp3");
     }
 
     public void readFilesOSX() {
@@ -131,6 +142,7 @@ public class ShopGame extends ApplicationAdapter {
                 name = name+i+".png";
             itemTextures[i] = new Texture(Gdx.files.internal(name));
             itemSprites[i] = new Sprite(itemTextures[i]);
+            itemSprites[i].setSize(RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
         }
         for(int i=0;i<82;i++){ //imports the complex items
             String name = "core/assets/Item-Images/Complex-Items/CI";
@@ -141,10 +153,46 @@ public class ShopGame extends ApplicationAdapter {
                 name = name+(i+1)+".png";
             itemTextures[index] = new Texture(Gdx.files.internal(name));
             itemSprites[index] = new Sprite(itemTextures[index]);
+            itemSprites[index].setSize(RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
         }
+        backgroundSprite = new Sprite(new Texture(Gdx.files.internal("core/assets/shopGameBackground.png")));
+        backgroundSprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         itemListHandle = Gdx.files.internal("core/assets/Spreadsheets/ItemList.txt");
         itemAssemblyHandle = Gdx.files.internal("core/assets/Spreadsheets/ItemAssembly.txt");
         itemDescriptionHandle = Gdx.files.internal("core/assets/Spreadsheets/ItemDescription.txt");
+        musicHandle = Gdx.files.internal("core/assets/Music/Dota_2_-_Reborn.mp3");
+    }
+
+    public void createItemDict() {
+        //puts items in the item dict with icons
+        String itemsString = itemListHandle.readString();
+        String[] itemStrings = itemsString.split("\n");
+        itemsDict = new HashMap<String, Item>();
+        for(int i = 0; i < itemStrings.length; i++) {
+            itemsDict.put(itemStrings[i], new Item(itemStrings[i], itemSprites[i]));
+        }
+
+        //gives all items their build components
+        String recipesString = itemAssemblyHandle.readString();
+        String[] recipeStrings = recipesString.split("\n");
+        for(String recipeString: recipeStrings) {
+            String item = recipeString.substring(0, recipeString.indexOf(":"));
+            String[] componentStrings = recipeString.substring(recipeString.indexOf(":")+1).split(",");
+            ArrayList<Item> components = new ArrayList<Item>();
+            for (String componentString: componentStrings) {
+                components.add(itemsDict.get(componentString));
+            }
+            itemsDict.get(item).setComponents(components);
+        }
+
+        //gives all items their descriptions
+        String descriptionsString = itemDescriptionHandle.readString();
+        String[] descriptionStrings = descriptionsString.split("///\n");
+        for (String descriptionString: descriptionStrings) {
+            String item = descriptionString.substring(0, descriptionString.indexOf("\n"));
+            String description = descriptionString.substring(descriptionString.indexOf("\n")+1);
+            itemsDict.get(item).setDescription(description);
+        }
     }
 
     @Override
@@ -157,6 +205,7 @@ public class ShopGame extends ApplicationAdapter {
         guessesLeftText.dispose();
         scoreText.dispose();
         consecutiveText.dispose();
+        backgroundMusic.dispose();
     }
 
     //continuously called during runtime
@@ -166,20 +215,24 @@ public class ShopGame extends ApplicationAdapter {
         getInput();
         update();
 
-        Gdx.gl.glClearColor(0,0,0,1); //clears the background and set it black
+        Gdx.gl.glClearColor(0, 0, 0, 1); //clears the background and set it black
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();//draw stuff after here
-        guessesLeftText.draw(batch, "Guesses Left: " + guessesLeft, Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2 - 10);
-        scoreText.draw(batch, "Score: " + score, Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2 - 30);
-        consecutiveText.draw(batch, consecutive +" in a row", Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2 - 50);
-        itemSprites[itemSprites.length - 1].draw(batch);
-        //Item item = itemsDict.get("Blink Dagger");
-        //item.getIcon().draw(batch);
+        backgroundSprite.draw(batch);
+        mainItem.getIcon().draw(batch);
+        mainItem.getIcon().setPosition(mainItemBox.getX(), mainItemBox.getY());
+        guessesLeftText.draw(batch, "Guesses Left: " + guessesLeft, Gdx.graphics.getWidth()/2 - 50, Gdx.graphics.getHeight()/2 - 100);
+        scoreText.draw(batch, "Score: " + score, Gdx.graphics.getWidth()/2 - 30, Gdx.graphics.getHeight()/2 - 120);
+        consecutiveText.draw(batch, consecutive +" in a row", Gdx.graphics.getWidth()/2 - 35, Gdx.graphics.getHeight()/2 - 140);
         batch.end();
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(Color.BLACK);
-        //shapeRenderer.rect();
+        shapeRenderer.setColor(Color.WHITE);
+        shapeRenderer.rect(mainItemBox.getX(), mainItemBox.getY(), mainItemBox.getWidth(), mainItemBox.getHeight());
+        for (int i = 0; i < choiceBoxes.length; i++) {
+            shapeRenderer.rect(choiceBoxes[i].getX(), choiceBoxes[i].getY(), choiceBoxes[i].getWidth(), choiceBoxes[i].getHeight());
+        }
+        shapeRenderer.rect(recipeBox.getX(), recipeBox.getY(), recipeBox.getWidth(), recipeBox.getHeight());
         shapeRenderer.end();
     }
 
@@ -187,9 +240,6 @@ public class ShopGame extends ApplicationAdapter {
      * Checks for Input and updates anything accordingly
      */
     public void getInput() {
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            itemsDict.get("Blink Dagger").getIcon().setPosition(itemsDict.get("Blink Dagger").getIcon().getX() + 5, itemsDict.get("Blink Dagger").getIcon().getY());
-        }
         if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
             itemsDict.get("Blink Dagger").getIcon().setPosition(0, 0);
             guessesLeft--;
@@ -200,6 +250,7 @@ public class ShopGame extends ApplicationAdapter {
      * Method to update the state of the game but doesn't actually "render anything to the screen"
      */
     public void update() {
+
         score = (int) itemSprites[0].getX();
     }
 }
