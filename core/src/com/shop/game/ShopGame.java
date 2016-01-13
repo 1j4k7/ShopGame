@@ -30,8 +30,9 @@ public class ShopGame extends ApplicationAdapter {
     private Item mainItem;
     private ArrayList<Item> componentItems;
     private ArrayList<Item> choiceItems;
-    private ArrayList<Item> selectedItems;
+    private ArrayList<Item> selectedItems = new ArrayList<Item>();
     private ArrayList<String> itemsNameArray = new ArrayList<String>();
+    private boolean isSetup = true;
 
     //map of all items (key: name, value:Item)
     private HashMap<String, Item> itemsDict;
@@ -80,7 +81,7 @@ public class ShopGame extends ApplicationAdapter {
         mainItem = itemsDict.get(itemsNameArray.get((int)(Math.random()*81)+65));
         componentItems = new ArrayList<Item>(5);
         for (Item component: mainItem.getComponents()) {
-            componentItems.add(component);
+            componentItems.add(copyItem(component));
         }
         choiceItems = new ArrayList<Item>();
         choiceItems.addAll(mainItem.getComponents());
@@ -88,7 +89,7 @@ public class ShopGame extends ApplicationAdapter {
             choiceItems.remove(itemsDict.get("Recipe"));
         }
         for(int i=0;choiceItems.size()<8;i++){
-            choiceItems.add(itemsDict.get(itemsNameArray.get((int)(Math.random()*147))));
+            choiceItems.add(copyItem(itemsDict.get(itemsNameArray.get((int)(Math.random()*147)))));
         }
 
         //graphics
@@ -232,6 +233,12 @@ public class ShopGame extends ApplicationAdapter {
         }
     }
 
+    private Item copyItem(Item item){
+        Sprite icon = new Sprite(itemTextures[itemsNameArray.indexOf(item.getName())]);
+        icon.setSize(RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+        return new Item(item.getName(), icon, item.getDescription(), item.getComponents());
+    }
+
     @Override
     public void dispose() { //disposes of all the assets
         for(Texture itemTexture: itemTextures) {
@@ -260,8 +267,10 @@ public class ShopGame extends ApplicationAdapter {
         mainItem.getIcon().setPosition(mainItemBox.getX(), mainItemBox.getY());
         for(int i=0;i<8;i++){
             choiceItems.get(i).getIcon().draw(batch);
-            choiceItems.get(i).getIcon().setPosition(choiceBoxes[i].getX(), choiceBoxes[i].getY());
+            if(isSetup)
+                choiceItems.get(i).getIcon().setPosition(choiceBoxes[i].getX(), choiceBoxes[i].getY());
         }
+        if(isSetup) isSetup = false;
         itemsDict.get("Recipe").getIcon().draw(batch);
         itemsDict.get("Recipe").getIcon().setPosition(recipeBox.getX(), recipeBox.getY());
         guessesLeftText.draw(batch, "Guesses Left: " + guessesLeft, Gdx.graphics.getWidth() / 2 - 50, Gdx.graphics.getHeight() / 2 - 100);
@@ -297,10 +306,28 @@ public class ShopGame extends ApplicationAdapter {
                 itemSelected = itemsDict.get("Recipe");
             }
             if(itemSelected != null){
-                guessesLeft--;
+                if(itemSelected.getIcon().getY() == Gdx.graphics.getHeight()/2-70 && selectedItems.size() <= selectedBoxes.length){
+                    System.out.println("Item Selected");
+                    selectedItems.add(itemSelected);
+                    itemSelected.getIcon().setPosition(selectedBoxes[selectedItems.size()-1].getX(), selectedBoxes[selectedItems.size()-1].getY());
+                }
             }
-            /**itemsDict.get("Blink Dagger").getIcon().setPosition(0, 0);
-            guessesLeft--;*/
+            itemSelected = null;
+            int index = 0;
+            for(int i=0;i<selectedBoxes.length;i++) {
+                if(selectedBoxes[i].contains(Gdx.input.getX(), Gdx.graphics.getHeight()-Gdx.input.getY())){
+                    if(selectedItems.size()>i){
+                        itemSelected = selectedItems.get(i);
+                        index = i;
+                    }
+                }
+            }
+            if(itemSelected != null) {
+                System.out.println("Removed");
+                int pos = choiceItems.indexOf(itemSelected);
+                selectedItems.remove(index);
+                itemSelected.getIcon().setPosition(choiceBoxes[pos].getX(), choiceBoxes[pos].getY());
+            }
         }
     }
 
