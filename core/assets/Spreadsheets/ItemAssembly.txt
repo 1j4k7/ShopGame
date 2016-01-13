@@ -15,7 +15,7 @@ Ring of Basilius:Sage's Mask,Ring of Protection
 Iron Talon:Quelling Blade,Ring of Protection,Recipe
 Headdress:Ring of Regen,Iron Branch,Recipe
 Buckler:Chainmail,Iron Branch,Recipe
-Urn of Shadows:Sage's Mask,Gauntlet of Strength,Gauntlet of Strength,Recipe
+Urn of Shadows:Sage's Mask,Gauntlets of Strength,Gauntlets of Strength,Recipe
 Tranquil Boots:Ring of Regen,Ring of Protection,Boots of Speed
 Ring of Aquila:Wraith Band,Ring of Basilius
 Medallion of Courage:Chainmail,Sage's Mask,Recipe
@@ -31,7 +31,7 @@ Veil of Discord:Helm of Iron Will,Null Talisman,Robe of the Magi,Robe of the Mag
 Aether Lens:Energy Booster,Ring of Health,Cloak
 Necronomicon:Staff of Wizardry,Belt of Strength,Recipe
 Dagon:Staff of Wizardry,Null Talisman,Recipe
-Eul's Scepter of Divinity:Staff of Wizardry,Sage's Mask, Void Stone,Recipe
+Eul's Scepter of Divinity:Staff of Wizardry,Sage's Mask,Void Stone,Recipe
 Solar Crest:Medallion of Courage,Talisman of Evasion
 Rod of Atos:Staff of Wizardry,Staff of Wizardry,Vitality Booster
 Orchid Malevolence:Oblivion Staff,Oblivion Staff,Recipe
@@ -39,7 +39,7 @@ Aghanim's Scepter:Staff of Wizardry,Blade of Alacrity,Ogre Club
 Refresher Orb:Perseverance,Perseverance,Recipe
 Scythe of Vyse:Mystic Staff,Ultimate Orb,Void Stone
 Octarine Core:Mystic Staff,Soul Booster
-Crystalys:Broadsword,Blade of Attack,Recipe
+Crystalys:Broadsword,Blades of Attack,Recipe
 Armlet of Mordiggian:Helm of Iron Will,Gloves of Haste,Blades of Attack,Recipe
 Shadow Blade:Claymore,Shadow Amulet
 Skull Basher:Javelin,Belt of Strength,Recipe

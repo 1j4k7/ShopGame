@@ -83,13 +83,19 @@ public class ShopGame extends ApplicationAdapter {
         for (Item component: mainItem.getComponents()) {
             componentItems.add(copyItem(component));
         }
-        choiceItems = new ArrayList<Item>();
-        choiceItems.addAll(mainItem.getComponents());
-        if(choiceItems.indexOf(itemsDict.get("Recipe")) != -1){
-            choiceItems.remove(itemsDict.get("Recipe"));
+        ArrayList<Item> choiceItemsTemp = new ArrayList<Item>();
+        choiceItemsTemp.addAll(mainItem.getComponents());
+        if(choiceItemsTemp.get(choiceItemsTemp.size()-1).getName().equals("Recipe")) {
+            choiceItemsTemp.remove(choiceItemsTemp.size() - 1);
         }
-        for(int i=0;choiceItems.size()<8;i++){
-            choiceItems.add(copyItem(itemsDict.get(itemsNameArray.get((int)(Math.random()*147)))));
+        for(int i=0;choiceItemsTemp.size()<8;i++){
+            choiceItemsTemp.add(copyItem(itemsDict.get(itemsNameArray.get((int)(Math.random()*146)+1))));
+        }
+        choiceItems = new ArrayList<Item>();
+        for(int i=0;i<8;i++){
+            int num = (int)(Math.random()*choiceItemsTemp.size());
+            choiceItems.add(choiceItemsTemp.get(num));
+            choiceItemsTemp.remove(num);
         }
 
         //graphics
@@ -197,7 +203,7 @@ public class ShopGame extends ApplicationAdapter {
             String[] componentStrings = recipeString.substring(recipeString.indexOf(":")+1).split(",");
             ArrayList<Item> components = new ArrayList<Item>();
             for (String componentString: componentStrings) {
-                components.add(itemsDict.get(componentString));
+                components.add(copyItem(itemsDict.get(componentString)));
             }
             itemsDict.get(item).setComponents(components);
         }
@@ -270,9 +276,9 @@ public class ShopGame extends ApplicationAdapter {
             if(isSetup)
                 choiceItems.get(i).getIcon().setPosition(choiceBoxes[i].getX(), choiceBoxes[i].getY());
         }
-        if(isSetup) isSetup = false;
         itemsDict.get("Recipe").getIcon().draw(batch);
-        itemsDict.get("Recipe").getIcon().setPosition(recipeBox.getX(), recipeBox.getY());
+        if(isSetup) itemsDict.get("Recipe").getIcon().setPosition(recipeBox.getX(), recipeBox.getY());
+        if(isSetup) isSetup = false;
         guessesLeftText.draw(batch, "Guesses Left: " + guessesLeft, Gdx.graphics.getWidth() / 2 - 50, Gdx.graphics.getHeight() / 2 - 100);
         scoreText.draw(batch, "Score: " + score, Gdx.graphics.getWidth()/2 - 30, Gdx.graphics.getHeight()/2 - 120);
         consecutiveText.draw(batch, consecutive +" in a row", Gdx.graphics.getWidth()/2 - 35, Gdx.graphics.getHeight()/2 - 140);
@@ -302,12 +308,11 @@ public class ShopGame extends ApplicationAdapter {
                     itemSelected = choiceItems.get(i);
                 }
             }
-            if(recipeBox.contains(Gdx.input.getX(), Gdx.input.getY())){
+            if(recipeBox.contains(Gdx.input.getX(), Gdx.graphics.getHeight()-Gdx.input.getY())){
                 itemSelected = itemsDict.get("Recipe");
             }
             if(itemSelected != null){
-                if(itemSelected.getIcon().getY() == Gdx.graphics.getHeight()/2-70 && selectedItems.size() <= selectedBoxes.length){
-                    System.out.println("Item Selected");
+                if(itemSelected.getIcon().getY() == Gdx.graphics.getHeight()/2-70 && selectedItems.size() < selectedBoxes.length){
                     selectedItems.add(itemSelected);
                     itemSelected.getIcon().setPosition(selectedBoxes[selectedItems.size()-1].getX(), selectedBoxes[selectedItems.size()-1].getY());
                 }
@@ -323,10 +328,22 @@ public class ShopGame extends ApplicationAdapter {
                 }
             }
             if(itemSelected != null) {
-                System.out.println("Removed");
-                int pos = choiceItems.indexOf(itemSelected);
-                selectedItems.remove(index);
-                itemSelected.getIcon().setPosition(choiceBoxes[pos].getX(), choiceBoxes[pos].getY());
+                if(itemSelected == itemsDict.get("Recipe")){
+                    selectedItems.remove(index);
+                    itemSelected.getIcon().setPosition(recipeBox.getX(), recipeBox.getY());
+                }else {
+                    int pos = choiceItems.indexOf(itemSelected);
+                    selectedItems.remove(index);
+                    itemSelected.getIcon().setPosition(choiceBoxes[pos].getX(), choiceBoxes[pos].getY());
+                }
+                for(int i=0;i<selectedItems.size();i++){
+                    selectedItems.get(i).getIcon().setPosition(selectedBoxes[i].getX(), selectedBoxes[i].getY());
+                }
+                try{
+                    Thread.sleep(250);
+                }catch(InterruptedException e){
+                    Thread.currentThread().interrupt();
+                }
             }
         }
     }
