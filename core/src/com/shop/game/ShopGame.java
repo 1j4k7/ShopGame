@@ -69,8 +69,8 @@ public class ShopGame extends ApplicationAdapter {
         shapeRenderer = new ShapeRenderer();
         Gdx.graphics.setTitle("The Shopkeeper's Quiz");
 
-        //readFilesWindows();
-        readFilesOSX();
+        readFilesWindows();
+        //readFilesOSX();
 
         createItemDict();
 
@@ -127,6 +127,8 @@ public class ShopGame extends ApplicationAdapter {
             itemTextures[index] = new Texture(Gdx.files.internal(name));
             itemSprites[index] = new Sprite(itemTextures[index]);
         }
+        backgroundSprite = new Sprite(new Texture(Gdx.files.internal("shopGameBackground.png")));
+        backgroundSprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         itemListHandle = Gdx.files.internal("Spreadsheets\\ItemList.txt");
         itemAssemblyHandle = Gdx.files.internal("Spreadsheets\\ItemAssembly.txt");
         itemDescriptionHandle = Gdx.files.internal("Spreadsheets\\ItemDescription.txt");
@@ -166,7 +168,7 @@ public class ShopGame extends ApplicationAdapter {
     public void createItemDict() {
         //puts items in the item dict with icons
         String itemsString = itemListHandle.readString();
-        String[] itemStrings = itemsString.split("\n");
+        String[] itemStrings = itemsString.split("\r\n");
         itemsDict = new HashMap<String, Item>();
         for(int i = 0; i < itemStrings.length; i++) {
             itemsDict.put(itemStrings[i], new Item(itemStrings[i], itemSprites[i]));
@@ -174,7 +176,7 @@ public class ShopGame extends ApplicationAdapter {
 
         //gives all items their build components
         String recipesString = itemAssemblyHandle.readString();
-        String[] recipeStrings = recipesString.split("\n");
+        String[] recipeStrings = recipesString.split("\r\n");
         for(String recipeString: recipeStrings) {
             String item = recipeString.substring(0, recipeString.indexOf(":"));
             String[] componentStrings = recipeString.substring(recipeString.indexOf(":")+1).split(",");
@@ -187,10 +189,10 @@ public class ShopGame extends ApplicationAdapter {
 
         //gives all items their descriptions
         String descriptionsString = itemDescriptionHandle.readString();
-        String[] descriptionStrings = descriptionsString.split("///\n");
+        String[] descriptionStrings = descriptionsString.split("///\r\n");
         for (String descriptionString: descriptionStrings) {
-            String item = descriptionString.substring(0, descriptionString.indexOf("\n"));
-            String description = descriptionString.substring(descriptionString.indexOf("\n")+1);
+            String item = descriptionString.substring(0, descriptionString.indexOf("\r\n"));
+            String description = descriptionString.substring(descriptionString.indexOf("\r\n")+1);
             itemsDict.get(item).setDescription(description);
         }
     }
@@ -221,7 +223,7 @@ public class ShopGame extends ApplicationAdapter {
         backgroundSprite.draw(batch);
         mainItem.getIcon().draw(batch);
         mainItem.getIcon().setPosition(mainItemBox.getX(), mainItemBox.getY());
-        guessesLeftText.draw(batch, "Guesses Left: " + guessesLeft, Gdx.graphics.getWidth()/2 - 50, Gdx.graphics.getHeight()/2 - 100);
+        guessesLeftText.draw(batch, "Guesses Left: " + guessesLeft, Gdx.graphics.getWidth() / 2 - 50, Gdx.graphics.getHeight() / 2 - 100);
         scoreText.draw(batch, "Score: " + score, Gdx.graphics.getWidth()/2 - 30, Gdx.graphics.getHeight()/2 - 120);
         consecutiveText.draw(batch, consecutive +" in a row", Gdx.graphics.getWidth()/2 - 35, Gdx.graphics.getHeight()/2 - 140);
         batch.end();
