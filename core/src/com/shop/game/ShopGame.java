@@ -71,8 +71,8 @@ public class ShopGame extends ApplicationAdapter {
         shapeRenderer = new ShapeRenderer();
         Gdx.graphics.setTitle("The Shopkeeper's Quiz");
 
-        //readFilesWindows();
-        readFilesOSX();
+        readFilesWindows();
+        //readFilesOSX();
 
         createItemDict();
 
@@ -348,6 +348,7 @@ public class ShopGame extends ApplicationAdapter {
 
                         selectedBoxes = new Rectangle[mainItem.getComponents().size()];
                         drawSelectedBoxes();
+                        score+=200+(30*(consecutive-1));
                         isSetup = true;
                         //you got it right
                     }else{
@@ -401,6 +402,6 @@ public class ShopGame extends ApplicationAdapter {
      */
     public void update() {
 
-        score = (int) itemSprites[0].getX();
+        //score ++;
     }
 }
