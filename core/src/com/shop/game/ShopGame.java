@@ -401,7 +401,6 @@ public class ShopGame extends ApplicationAdapter {
      * Method to update the state of the game but doesn't actually "render anything to the screen"
      */
     public void update() {
-
         //score ++;
     }
 }
